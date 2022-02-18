@@ -1,0 +1,25 @@
+{
+  "name": "jsreport-server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "jsreport": "jsreport"
+  },
+  "jsreport": {
+    "entryPoint": "server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^14.2.0",
+    "express-handlebars": "^6.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.6",
+    "sequelize-cli": "^5.5.1",
+    "ws": "^8.4.2"
+  },
+  "version": "1.0.0",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
