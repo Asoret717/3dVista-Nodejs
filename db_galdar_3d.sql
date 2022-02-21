@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-02-2022 a las 17:50:06
+-- Tiempo de generación: 21-02-2022 a las 16:12:50
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -151,6 +151,27 @@ INSERT INTO `users` (`id`, `username`, `password`, `mail`, `darkmode`, `isAdmin`
 (13, 'another1', '$2a$10$VqVZkFWPUFvX6JMxyHAhmOIQ6fUlKwr30pCvdplOhyy/65dbkcgNi', 'another@gmail.com', 0, 0, '0001-01-01 01:01:36', '2021-12-09 17:24:12'),
 (21, 'TheGamer', '$2a$10$gQm.v7Z4iOx9LHSQDLUnZOieSen/5WruPJAbgUHtuWOSpzGuxEURu', 'theGamer@hotmail.com', 1, 0, '0001-01-01 01:01:36', '2021-12-10 19:16:39');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `views`
+--
+
+CREATE TABLE `views` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `views` int(11) NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `views`
+--
+
+INSERT INTO `views` (`id`, `name`, `views`, `createdAt`, `updatedAt`) VALUES
+(1, '3D Vista Main menu', 33, '2022-02-18 18:13:15', '2022-02-18 19:50:50');
+
 --
 -- Índices para tablas volcadas
 --
@@ -182,6 +203,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `views`
+--
+ALTER TABLE `views`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -189,7 +216,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `reviews`
@@ -208,6 +235,12 @@ ALTER TABLE `texts`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT de la tabla `views`
+--
+ALTER TABLE `views`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas

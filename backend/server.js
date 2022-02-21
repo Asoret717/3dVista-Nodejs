@@ -1,12 +1,15 @@
 require('dotenv').config();
- 
+//require('./pages.js');
+
 const jwt = require('jsonwebtoken');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
- 
+
 const app = express();
 const port = process.env.PORT || 4000;
+
+app.use(express.static(__dirname + '/public'))
 
 ///////////////////////////////////////
 
@@ -17,10 +20,10 @@ let handleRequest = (request, response) => {
     response.writeHead(200, {
         'Content-Type': 'text/html'
     });
-    fs.readFile('webgl', null, function (error, data) {
+    fs.readFile('webContador/index.html', null, function (error, data) {
         if (error) {
             response.writeHead(404);
-            respone.write('Whoops! File not found!');
+            response.write('Whoops! File not found!');
         } else {
             response.write(data);
         }
@@ -28,15 +31,18 @@ let handleRequest = (request, response) => {
     });
 };
 
-http.createServer(handleRequest).listen(8000); */
+http.createServer(handleRequest).listen(8080); */
 
-const { exec } = require('child_process');
+
+/*const { exec } = require('child_process');
 exec('http-server webgl', (err, stdout, stderr) => {
   if (err) {
     // node couldn't execute the command
     return
   }
-});
+});*/
+
+
 
 ///////////////////////////////////////
 const jsreport = require('jsreport')()
@@ -56,26 +62,26 @@ if (process.env.JSREPORT_CLI) {
 
 ///////////////////////////////////////
 const WebSocket = require('ws')
-const wss = new WebSocket.Server({port: 8000},()=>{
-    console.log('server started')
+const wss = new WebSocket.Server({ port: 8000 }, () => {
+  console.log('server started')
 })
 
-wss.on('connection',(ws)=>{
-    ws.on('message',(data)=>{
-        console.log('data received: ' + data)
-        wss.broadcast(data);
-    })
+wss.on('connection', (ws) => {
+  ws.on('message', (data) => {
+    console.log('data received: ' + data)
+    wss.broadcast(data);
+  })
 })
 
-wss.broadcast = function broadcast(msg){
-    wss.clients.forEach(function each(client){
-      client.send(msg);
-    });
-  };
+wss.broadcast = function broadcast(msg) {
+  wss.clients.forEach(function each(client) {
+    client.send(msg);
+  });
+};
 
-wss.on('listening',()=>{
-    console.log('server is listening on port 8000')
-}) 
+wss.on('listening', () => {
+  console.log('server is listening on port 8000')
+})
 
 ///////////////////////////////////////
 
@@ -87,12 +93,12 @@ app.use(bodyParser.json());
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
- 
+
 // database conection
 const db = require("./models");
 
 // For explotation. Database is not dropped.
-db.sequelize.sync(); 
+db.sequelize.sync();
 
 // Development only. Drops and re-sync db everytime the server starts.
 // db.sequelize.sync({ force: true }).then(() => {
@@ -106,9 +112,9 @@ app.use(function (req, res, next) {
   var token = req.headers['authorization'];
   if (!token) return next(); //if no token, continue
 
-  if(req.headers.authorization.indexOf('Basic ') === 0){
+  if (req.headers.authorization.indexOf('Basic ') === 0) {
     // verify auth basic credentials
-    const base64Credentials =  req.headers.authorization.split(' ')[1];
+    const base64Credentials = req.headers.authorization.split(' ')[1];
     const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
     const [username, password] = credentials.split(':');
 
