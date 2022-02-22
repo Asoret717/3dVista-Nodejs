@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .button {
+      background-color: #6d0000;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="left:100px">
+    <h2>You are logged in</h2>
+    <div style="text-align: center;">
+      <h1 id="demo" style="background-color: rgb(32, 32, 32); color: white;"></h1></br></br>
+
+      <button class="button" type="button" onclick="myFunction()">Log out</button>
+    </div>
+  </div>
+
+
+  <script>
+
+    var userData = localStorage.getItem("lastname");
+    var user = JSON.parse(userData);
+    document.getElementById("demo").innerHTML = user.user.username;
+
+    function myFunction() {
+      localStorage.setItem("lastname", "");
+      window.location.href = "http://localhost:4000/loginForm/";
+    }
+  </script>
+
+</body>
+
+</html>

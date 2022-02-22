@@ -78,11 +78,13 @@ public class LoginUsers : MonoBehaviour
     }
     void Start()
     {
-        SetData("lastname", "Unity local storage");
         Debug.Log(GetData("lastname"));
-        txt_username.GetComponent<Text>().text = GetData("lastname");
+        //txt_username.GetComponent<Text>().text = GetData("lastname");
         closeWindows();
         contentUser = LoginUsers2.getUser();
+        if(GetData("lastname").StartsWith("{\"user\":{\"id\"")){
+            contentUser = JsonConvert.DeserializeObject<OverUserModel>(GetData("lastname"));
+        }
         if (contentUser == null)
         {
             contentUser = Crud.getUser();
@@ -315,14 +317,8 @@ public class LoginUsers : MonoBehaviour
         var username = form_login.transform.GetChild(1).GetComponent<InputField>().text;
         var password = form_login.transform.GetChild(2).GetComponent<InputField>().text;
 
-        var byteArray = System.Text.Encoding.UTF8.GetBytes($"{username}:{password}");
-        string encodedText = Convert.ToBase64String(byteArray);
-        UnityWebRequest request = new UnityWebRequest("http://localhost:4000/api/users/signin", "POST");
-        request.downloadHandler = new DownloadHandlerBuffer();
-        request.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        request.SetRequestHeader("Authorization", "Basic " + encodedText);
-        yield return request.SendWebRequest();
-        DbData = request.downloadHandler.text;
+        yield return loginI(username,password);
+
         if (DbData.StartsWith("{\"user\":{\"id\""))
             {
                 Debug.Log(DbData);
@@ -388,6 +384,7 @@ public class LoginUsers : MonoBehaviour
         btn_logout.SetActive(false);
         btn_admin.SetActive(false);
         btn_login.SetActive(true);
+        SetData("lastname", "");
     }
     public void register()
     {

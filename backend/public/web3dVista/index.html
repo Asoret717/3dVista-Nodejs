@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Sin Título 1</title>
+    <title>3dVista Unity</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" id="metaViewport" content="user-scalable=no, initial-scale=1, width=device-width, viewport-fit=cover" data-tdv-general-scale="0.5"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <script src="lib/tdvplayer.js?v=1645465491724"></script>
-    <link rel="preload" href="locale/es.txt?v=1645465491724" as="fetch" crossorigin="anonymous"/>
-	<link rel="preload" href="script.js?v=1645465491724" as="script"/>
+    <script src="lib/tdvplayer.js?v=1645555566488"></script>
+    <link rel="preload" href="locale/es.txt?v=1645555566488" as="fetch" crossorigin="anonymous"/>
+	<link rel="preload" href="script.js?v=1645555566488" as="script"/>
 	<meta name="description" content="Virtual Tour"/>
 	<meta name="theme-color" content="#000000"/>
-    <script src="script.js?v=1645465491724"></script>
+    <script src="script.js?v=1645555566488"></script>
     <script type="text/javascript">
         var tour;
-        var devicesUrl = {"general":"script_general.js?v=1645465491724","mobile":"script_mobile.js?v=1645465491724"};
+        var devicesUrl = {"general":"script_general.js?v=1645555566488","mobile":"script_mobile.js?v=1645555566488"};
 
         (function()
         {
@@ -57,9 +57,9 @@
 
             var settings = new TDV.PlayerSettings();
             settings.set(TDV.PlayerSettings.CONTAINER, document.getElementById('viewer'));
-            settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'lib/WebVRPolyfill.js?v=1645465491724');
-            settings.set(TDV.PlayerSettings.HLS_URL, 'lib/Hls.js?v=1645465491724');
-            settings.set(TDV.PlayerSettings.QUERY_STRING_PARAMETERS, 'v=1645465491724');
+            settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'lib/WebVRPolyfill.js?v=1645555566488');
+            settings.set(TDV.PlayerSettings.HLS_URL, 'lib/Hls.js?v=1645555566488');
+            settings.set(TDV.PlayerSettings.QUERY_STRING_PARAMETERS, 'v=1645555566488');
 
             tour = new TDV.Tour(settings, devicesUrl);
             tour.bind(TDV.Tour.EVENT_TOUR_INITIALIZED, onVirtualTourInit);
@@ -305,10 +305,10 @@
         #viewer { z-index:1; }
         #preloadContainer { z-index:2; opacity:0; background-color:rgba(0,0,0,1); transition: opacity 0.5s; -webkit-transition: opacity 0.5s; -moz-transition: opacity 0.5s; -o-transition: opacity 0.5s;}
     </style>
-    <link rel="stylesheet" href="fonts.css?v=1645465491724">
+    <link rel="stylesheet" href="fonts.css?v=1645555566488">
 </head>
 <body>
-    <div id="preloadContainer" class="fill-viewport"><div style="z-index: 4; position: absolute; background-image: url('loading/HTMLImage_0B73CABA_1DDA_DB48_41B2_5125DC30818E.png'); background-size: cover; background-repeat: no-repeat; background-position: center center; overflow: hidden; right: 0%; bottom: 0%; width: 100.00%; height: 100.00%"></div><div style="z-index: 5; position: absolute; left: 42.58238276299113%; bottom: 48.26815642458101%; width: 25.48%; height: 11.17%"><div style="text-align:left; color:#000; "><DIV STYLE="text-align:left;font-size:9.273743016759775vmin;"><SPAN STYLE="display:inline-block; letter-spacing:0vmin; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;"><SPAN STYLE="font-size:9.27vmin;">Loading...</SPAN></SPAN></DIV></div></div></div>
+    <div id="preloadContainer" class="fill-viewport"><div style="z-index: 4; position: absolute; background-image: url('loading/HTMLImage_0B73CABA_1DDA_DB48_41B2_5125DC30818E.png'); background-size: cover; background-repeat: no-repeat; background-position: center center; overflow: hidden; right: 0%; bottom: 0%; width: 100.00%; height: 100.00%"></div><div style="z-index: 5; position: absolute; left: 42.58%; bottom: 48.27%; width: 25.48%; height: 11.17%"><div style="text-align:left; color:#000; "><DIV STYLE="text-align:left;font-size:9.273743016759774vmin;"><SPAN STYLE="display:inline-block; letter-spacing:0vmin; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;"><SPAN STYLE="font-size:9.27vmin;">Loading...</SPAN></SPAN></DIV></div></div></div>
     <div id="viewer" class="fill-viewport"></div>
 </body>
 </html>

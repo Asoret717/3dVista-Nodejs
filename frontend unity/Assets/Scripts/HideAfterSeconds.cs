@@ -30,14 +30,15 @@ public class HideAfterSeconds : MonoBehaviour{
         videoPlayer.GetComponent<UnityEngine.Video.VideoPlayer>().frame = 0;
         
         background.SetActive(true);
-        Invoke("hideUI3", 1.5f);
+        Invoke("hideUI3", 1.8f);
+        /*
         if(!firstView){
             loading1.SetActive(true);
             Invoke("hideUI1", 3.5f);
             loading2.SetActive(true);
             Invoke("hideUI2", 5.5f);
             firstView=true;
-        }
+        }*/
     }
 
     // Update is called once per frame
