@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .button {
+      border: none;
+      color: white;
+      padding: 5px 12px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="left:100px;">
+    <h2 style="text-align: center;">Register</h2>
+
+    <p>Username:</p>
+    <input id="username">
+    <p>Email:</p>
+    <input type="email" id="email">
+    <p>Password:</p>
+    <input type="password" id="password"></br></br>
+    <div style="text-align: center;">
+      <button class="button" type="button" onclick="register()" style="background-color: #6d6200;">Register</button>
+      <button class="button" type="button" onclick="goLogin()" style="background-color: #00266d;">Log in</button>
+      <p id="demo"></p>
+    </div>
+  </div>
+
+
+  <script>
+    function register() {
+      let username = document.getElementById("username").value;
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+
+      if (username != "" && email != "" && password != "") {
+        var data = { "username": username, "password": password, "mail": email };
+        var dato = JSON.stringify(data);
+        var request = new XMLHttpRequest();
+        request.open("POST", "http://localhost:4000/api/users", true);
+        request.setRequestHeader('Content-Type', 'application/json');
+
+        request.onload = function (req, response) {
+          var resp = this.response;
+
+          if (resp.startsWith("{\"user\":{\"id\"")) {
+            localStorage.setItem("lastname", resp);
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+            window.location.href = "http://localhost:4000/logout/";
+          }
+        };
+        request.send(dato);
+      }
+    }
+    function goLogin() {
+      window.location.href = "http://localhost:4000/loginForm/";
+    }
+  </script>
+
+</body>
+
+</html>

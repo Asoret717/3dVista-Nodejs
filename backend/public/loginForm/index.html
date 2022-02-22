@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      .button {
-        background-color: #00266d;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-      }
-    </style>
-  </head>
-<body>
-<div style="left:100px;">
-  <h2 style="text-align: center;">Log in</h2>
 
-  <p>Username:</p>
-  <input id="username">
-  <p>Password:</p>
-  <input type="password" id="password"></br></br>
-  <div style="text-align: center;">
-  <button class="button" type="button" onclick="myFunction()">Log in</button>
-  <p id="demo"></p></div>
-</div>
-  
+<head>
+  <style>
+    .button {
+      border: none;
+      color: white;
+      padding: 5px 12px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="left:100px;">
+    <h2 style="text-align: center;">Log in</h2>
+
+    <p>Username:</p>
+    <input id="username">
+    <p>Password:</p>
+    <input type="password" id="password"></br></br>
+    <div style="text-align: center;">
+      <button class="button" type="button" onclick="login()" style="background-color: #00266d;">Log in</button>
+      <button class="button" type="button" onclick="goRegister()" style="background-color: #6d6200;">Register</button>
+      <p id="demo"></p>
+    </div>
+  </div>
+
 
   <script>
     if (localStorage.getItem("lastname").startsWith("{\"user\":{\"id\"")) {
       window.location.href = "http://localhost:4000/logout/";
     }
-    function myFunction() {
+    function login() {
       // Get the value of the input field with id="numb"
       let username = document.getElementById("username").value;
       let password = document.getElementById("password").value;
@@ -50,25 +54,27 @@
       request.setRequestHeader('Content-Type', 'application/json');
       request.setRequestHeader("Authorization", "Basic " + encodedText);
 
-      request.onload = function (req,response) {
+      request.onload = function (req, response) {
         var resp = this.response;
-        localStorage.setItem("lastname", response);
         let text;
 
         if (resp.startsWith("{\"user\":{\"id\"")) {
           text = resp;
           localStorage.setItem("lastname", resp);
-          window.close();
+          document.getElementById("username").value = "";
+          document.getElementById("password").value = "";
+          document.getElementById("demo").innerHTML = text;
+          window.location.href = "http://localhost:4000/logout/";
         } else {
           text = "Login Fail";
         }
-        document.getElementById("username").value="";
-        document.getElementById("password").value="";
         document.getElementById("demo").innerHTML = text;
-        window.location.href = "http://localhost:4000/logout/";
       };
 
       request.send();
+    }
+    function goRegister() {
+      window.location.href = "http://localhost:4000/registerForm/";
     }
   </script>
 
