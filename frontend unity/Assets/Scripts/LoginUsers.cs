@@ -343,7 +343,7 @@ public class LoginUsers : MonoBehaviour
     {
         if (access_token != "")
         {
-            SetData("lastname",JsonConvert.SerializeObject(contentUser));
+            
             username = contentUser.user.username;
             txt_username.GetComponent<Text>().text = username;
             txt_mail.GetComponent<Text>().text = contentUser.user.mail;
@@ -357,6 +357,7 @@ public class LoginUsers : MonoBehaviour
             }
             Dark = contentUser.user.darkmode;
             settingDarkness();
+            SetData("lastname",JsonConvert.SerializeObject(contentUser));
         }
 
     }
