@@ -120,18 +120,6 @@ public class LoginUsers : MonoBehaviour
         delete_window.SetActive(false);
     }
 
-    public static String ip = "localhost";
-    public void changeIp()
-    {
-        ip = ip_input.GetComponent<TMP_InputField>().text;
-        Debug.Log(ip);
-    }
-
-    public static String getIp()
-    {
-        return ip;
-    }
-
     public void contact()
     {
         if (access_token != "")
@@ -355,6 +343,7 @@ public class LoginUsers : MonoBehaviour
     {
         if (access_token != "")
         {
+            SetData("lastname",JsonConvert.SerializeObject(contentUser));
             username = contentUser.user.username;
             txt_username.GetComponent<Text>().text = username;
             txt_mail.GetComponent<Text>().text = contentUser.user.mail;

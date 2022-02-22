@@ -38,8 +38,6 @@ public class LoginUsers2 : MonoBehaviour
     string mensaje = "";
     public static string recibido = "";
 
-    public string ip = "localhost";
-
     public GameObject form_login, txt_username, txt_mail, btn_settings, btn_login, btn_logout, login_error,
     form_register, register_error, password_window, password_error, user_settings,
     email_window, email_error, delete_window, main_menu_white, main_menu_black, places,
@@ -67,8 +65,7 @@ public class LoginUsers2 : MonoBehaviour
         }
         isLoggedin();
         settingDarkness();
-        ip = LoginUsers.getIp();
-        ws = WebSocketFactory.CreateInstance("ws://" + ip + ":8000");
+        ws = WebSocketFactory.CreateInstance("ws://localhost:8000");
         ws.OnMessage += (byte[] msg) =>
         {
             recibido = System.Text.Encoding.UTF8.GetString(msg);
