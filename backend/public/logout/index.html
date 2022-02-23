@@ -11,7 +11,8 @@
     <div style="text-align: center;">
       <h1 id="demo" style="background-color: rgb(32, 32, 32); color: white;"></h1></br></br>
 
-      <button class="testbutton3" type="button" onclick="myFunction()">Log out</button>
+      <button class="testbutton2" type="button" onclick="contact()">Contact</button></br></br>
+      <button class="testbutton3" type="button" onclick="logout()">Log out</button>
     </div>
   </div>
 
@@ -22,9 +23,12 @@
     var user = JSON.parse(userData);
     document.getElementById("demo").innerHTML = user.user.username;
 
-    function myFunction() {
+    function logout() {
       localStorage.setItem("lastname", "");
       window.location.href = "http://localhost:4000/loginForm/";
+    }
+    function contact() {
+      window.location.href = "http://localhost:4000/contactForm/";
     }
   </script>
 
