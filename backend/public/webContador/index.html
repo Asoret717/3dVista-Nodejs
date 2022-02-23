@@ -2,11 +2,11 @@
 <html>
 
 <body onload="myFunction()">
-  <div style="display:inline-block;vertical-align:top;">
-  <img src="http://localhost:4000/img/view.png" style="height:50px; width:50px;">
+  <div style="display:inline-block;vertical-align:left;">
+  <img src="http://localhost:4000/img/view.png" style="height:40px; width:40px;">
   </div>
   <div style="display:inline-block;">
-  <h1><span id="myText"></span></h1>
+  <h1><span id="myText" style="font-size: 22px;"></span></h1>
   </div>
 
   <script>
@@ -18,9 +18,7 @@
         var resp = this.response;
         var view = JSON.parse(resp);
         document.getElementById("myText").innerHTML = view.views;
-        //view.views
       };
-
       request.send();
     }
   </script>
