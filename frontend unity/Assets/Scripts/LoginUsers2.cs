@@ -18,7 +18,7 @@ public class LoginUsers2 : MonoBehaviour
 {
     public static string content;
     public static List<CrudComments.ReviewModel> contentArray;
-    public static List<Crud.ImageModel> contentArrayImage;
+    //public static List<Crud.ImageModel> contentArrayImage;
     public static LoginUsers.OverUserModel contentUser = null;
     public static string access_token = "";
     public static string username = "";
@@ -94,6 +94,7 @@ public class LoginUsers2 : MonoBehaviour
         email_error.SetActive(false);
         delete_window.SetActive(false);
     }
+    /*
     public void destroyImages()
     {
         for (int i = 0; i < itemParentImage.transform.childCount; i++)
@@ -109,8 +110,6 @@ public class LoginUsers2 : MonoBehaviour
     {
 
         txt_place_image.GetComponent<Text>().text = TourManager.getPlace();
-        /*using var client = new HttpClient();
-        content = await client.GetStringAsync("http://localhost:4000/api/reviews");*/
         UnityWebRequest request = new UnityWebRequest("http://localhost:4000/api/images", "GET");
         request.downloadHandler = new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
@@ -160,7 +159,7 @@ public class LoginUsers2 : MonoBehaviour
         }
         readImages();
     }
-
+*/
     public void read()
     {
         StartCoroutine(readI());
@@ -589,7 +588,7 @@ public class LoginUsers2 : MonoBehaviour
     public void settingDarkness()
     {
         Crud.setDark(Dark);
-        read(); readImages();
+        read(); //readImages();
         var white = new Color32(255, 255, 255, 255);
         var black = new Color32(52, 52, 55, 255);
         if (Dark)
@@ -706,9 +705,9 @@ public class LoginUsers2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            destroyImages();
+            //destroyImages();
             read();
-            readImages();
+            //readImages();
             cuentaElegida = 0;
             cuentaMaxima = 0;
         }

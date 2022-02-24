@@ -14,18 +14,17 @@ using System.Runtime.InteropServices;
 public class Crud : MonoBehaviour
 {
 
-    public class ImageModel
+    public class ViewsModel
     {
         public int id { get; set; }
         public string name { get; set; }
-        public string fileName { get; set; }
-        public string place { get; set; }
+        public int views { get; set; }
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
     }
 
     public static string content;
-    public static List<ImageModel> contentArray;
+    public static List<ViewsModel> contentArray;
     public static string idUpdate;
     public static string idDelete;
 
@@ -67,13 +66,11 @@ public class Crud : MonoBehaviour
             {
                 Destroy(itemParent.transform.GetChild(i).gameObject);
             }
-            //using var client = new HttpClient();
-            UnityWebRequest request = new UnityWebRequest("http://localhost:4000/api/images", "GET");
+            UnityWebRequest request = new UnityWebRequest("http://localhost:4000/api/views", "GET");
             request.downloadHandler = new DownloadHandlerBuffer();
             yield return request.SendWebRequest();
-            //content = await client.GetStringAsync("http://localhost:4000/api/images");
-            contentArray = JsonConvert.DeserializeObject<List<ImageModel>>(request.downloadHandler.text);
-            foreach (ImageModel model in contentArray)
+            contentArray = JsonConvert.DeserializeObject<List<ViewsModel>>(request.downloadHandler.text);
+            foreach (ViewsModel model in contentArray)
             {
                 GameObject tmp_item = Instantiate(item, itemParent.transform);
                 tmp_item.transform.GetChild(0).GetComponent<Text>().color = Color.white;
@@ -81,9 +78,7 @@ public class Crud : MonoBehaviour
                 tmp_item.transform.GetChild(1).GetComponent<Text>().color = Color.white;
                 tmp_item.transform.GetChild(1).GetComponent<Text>().text = model.name;
                 tmp_item.transform.GetChild(2).GetComponent<Text>().color = Color.white;
-                tmp_item.transform.GetChild(2).GetComponent<Text>().text = model.fileName;
-                tmp_item.transform.GetChild(3).GetComponent<Text>().color = Color.white;
-                tmp_item.transform.GetChild(3).GetComponent<Text>().text = model.place;
+                tmp_item.transform.GetChild(2).GetComponent<Text>().text = model.views.ToString();
             }
         }
         else
@@ -98,13 +93,11 @@ public class Crud : MonoBehaviour
             {
                 Destroy(itemParent.transform.GetChild(i).gameObject);
             }
-            //using var client = new HttpClient();
-            UnityWebRequest request = new UnityWebRequest("http://localhost:4000/api/images", "GET");
+            UnityWebRequest request = new UnityWebRequest("http://localhost:4000/api/views", "GET");
             request.downloadHandler = new DownloadHandlerBuffer();
             yield return request.SendWebRequest();
-            //content = await client.GetStringAsync("http://localhost:4000/api/images");
-            contentArray = JsonConvert.DeserializeObject<List<ImageModel>>(request.downloadHandler.text);
-            foreach (ImageModel model in contentArray)
+            contentArray = JsonConvert.DeserializeObject<List<ViewsModel>>(request.downloadHandler.text);
+            foreach (ViewsModel model in contentArray)
             {
                 GameObject tmp_item = Instantiate(item, itemParent.transform);
                 tmp_item.transform.GetChild(0).GetComponent<Text>().color = Color.black;
@@ -112,9 +105,7 @@ public class Crud : MonoBehaviour
                 tmp_item.transform.GetChild(1).GetComponent<Text>().color = Color.black;
                 tmp_item.transform.GetChild(1).GetComponent<Text>().text = model.name;
                 tmp_item.transform.GetChild(2).GetComponent<Text>().color = Color.black;
-                tmp_item.transform.GetChild(2).GetComponent<Text>().text = model.fileName;
-                tmp_item.transform.GetChild(3).GetComponent<Text>().color = Color.black;
-                tmp_item.transform.GetChild(3).GetComponent<Text>().text = model.place;
+                tmp_item.transform.GetChild(2).GetComponent<Text>().text = model.views.ToString();
             }
         }
     }
@@ -168,26 +159,18 @@ public class Crud : MonoBehaviour
 
     IEnumerator createI()
     {
-        var image = new ImageModel();
-        image.name = form_create.transform.GetChild(1).GetComponent<InputField>().text;
-        image.fileName = form_create.transform.GetChild(2).GetComponent<InputField>().text;
-        image.place = form_create.transform.GetChild(3).GetComponent<InputField>().text;
+        var view = new ViewsModel();
+        view.name = form_create.transform.GetChild(1).GetComponent<InputField>().text;
+        view.views = int.Parse(form_create.transform.GetChild(2).GetComponent<InputField>().text);
         WWWForm form = new WWWForm();
-        form.AddField("name", image.name);
-        form.AddField("fileName", image.fileName);
-        form.AddField("place", image.place);
-        UnityWebRequest request = UnityWebRequest.Post("http://localhost:4000/api/images",form);
+        form.AddField("name", view.name);
+        form.AddField("views", view.views);
+        UnityWebRequest request = UnityWebRequest.Post("http://localhost:4000/api/views",form);
         request.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         request.downloadHandler = new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
-        //Debug.Log(request.downloadHandler.text);
-        /*var json = JsonConvert.SerializeObject(image);
-        var data = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-        using var client = new HttpClient();
-        HttpResponseMessage response = await client.PostAsync("http://localhost:4000/api/images", data);*/
         form_create.transform.GetChild(1).GetComponent<InputField>().text = "";
         form_create.transform.GetChild(2).GetComponent<InputField>().text = "";
-        form_create.transform.GetChild(3).GetComponent<InputField>().text = "";
         read();
     }
 
@@ -201,9 +184,7 @@ public class Crud : MonoBehaviour
         StartCoroutine(deleteI());
     }
     IEnumerator deleteI(){
-        /*using var client = new HttpClient();
-        HttpResponseMessage response = await client.DeleteAsync("http://localhost:4000/api/images/" + idDelete);*/
-        UnityWebRequest request=UnityWebRequest.Delete("http://localhost:4000/api/images/" + idDelete);
+        UnityWebRequest request=UnityWebRequest.Delete("http://localhost:4000/api/views/" + idDelete);
         request.downloadHandler = new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
         read();
@@ -216,7 +197,6 @@ public class Crud : MonoBehaviour
         form_update.SetActive(true);
         form_update.transform.GetChild(1).GetComponent<InputField>().text = obj_update.transform.GetChild(1).GetComponent<Text>().text;
         form_update.transform.GetChild(2).GetComponent<InputField>().text = obj_update.transform.GetChild(2).GetComponent<Text>().text;
-        form_update.transform.GetChild(3).GetComponent<InputField>().text = obj_update.transform.GetChild(3).GetComponent<Text>().text;
         idUpdate = obj_update.transform.GetChild(0).GetComponent<Text>().text;
     }
 
@@ -226,23 +206,19 @@ public class Crud : MonoBehaviour
     }
 
     IEnumerator updateI(){
-        var imageUpdate = new ImageModel();
-        imageUpdate.id = int.Parse(idUpdate);
-        imageUpdate.name = form_update.transform.GetChild(1).GetComponent<InputField>().text;
-        imageUpdate.fileName = form_update.transform.GetChild(2).GetComponent<InputField>().text;
-        imageUpdate.place = form_update.transform.GetChild(3).GetComponent<InputField>().text;
-        var json = JsonConvert.SerializeObject(imageUpdate);
-        //var updateData = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+        var viewUpdate = new ViewsModel();
+        viewUpdate.id = int.Parse(idUpdate);
+        viewUpdate.name = form_update.transform.GetChild(1).GetComponent<InputField>().text;
+        viewUpdate.views = int.Parse(form_update.transform.GetChild(2).GetComponent<InputField>().text);
+        var json = JsonConvert.SerializeObject(viewUpdate);
         var byteArray = System.Text.Encoding.UTF8.GetBytes(json);
-        UnityWebRequest request = UnityWebRequest.Put("http://localhost:4000/api/images/"+idUpdate,byteArray);
+        UnityWebRequest request = UnityWebRequest.Put("http://localhost:4000/api/views/"+idUpdate,byteArray);
         request.SetRequestHeader("Content-Type", "application/json");
         request.downloadHandler = new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
-        /*using var client = new HttpClient();
-        HttpResponseMessage response = await client.PutAsync("http://localhost:4000/api/images/" + idUpdate, updateData);*/
         read();
     }
-
+    
     // Update is called once per frame
     [DllImport("__Internal")]
      private static extern void OpenURLInExternalWindow(string url);

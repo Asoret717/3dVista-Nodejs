@@ -49,6 +49,8 @@ public class LoginUsers : MonoBehaviour
     public static string username = "";
     public static Boolean Dark = false;
 
+    public static List<UserModel> contentArray;
+
     public static string DbData = "";
     public static OverUserModel getUser() { return contentUser; }
     public static void setUser(OverUserModel user) { contentUser = user; }
@@ -61,17 +63,17 @@ public class LoginUsers : MonoBehaviour
 
     public GameObject form_login, txt_username, txt_mail, btn_settings, btn_login, btn_logout, btn_admin, login_error,
     form_register, register_error, contact_window, contact2_window, contact_success, password_window, password_error, user_settings, info,
-    email_window, email_error, delete_window, main_menu_white, main_menu_black, ip_input;
+    email_window, email_error, delete_window, main_menu_white, main_menu_black;
 
     public static LoginUsers instance;
 
     [DllImport("__Internal")]
-    private static extern void SetData(string yourkey,string yourdata);
+    private static extern void SetData(string yourkey, string yourdata);
 
     [DllImport("__Internal")]
     private static extern string GetData(string yourkey);
 
-    
+
     void Awake()
     {
         instance = this;
@@ -80,9 +82,10 @@ public class LoginUsers : MonoBehaviour
     {
         Debug.Log(GetData("lastname"));
         //txt_username.GetComponent<Text>().text = GetData("lastname");
-        closeWindows();
+        //closeWindows();
         contentUser = LoginUsers2.getUser();
-        if(GetData("lastname").StartsWith("{\"user\":{\"id\"")){
+        if (GetData("lastname").StartsWith("{\"user\":{\"id\""))
+        {
             contentUser = JsonConvert.DeserializeObject<OverUserModel>(GetData("lastname"));
         }
         if (contentUser == null)
@@ -301,31 +304,32 @@ public class LoginUsers : MonoBehaviour
         }
     }
 
-    public IEnumerator login2(){
+    public IEnumerator login2()
+    {
         var username = form_login.transform.GetChild(1).GetComponent<InputField>().text;
         var password = form_login.transform.GetChild(2).GetComponent<InputField>().text;
 
-        yield return loginI(username,password);
+        yield return loginI(username, password);
 
         if (DbData.StartsWith("{\"user\":{\"id\""))
-            {
-                Debug.Log(DbData);
-                login_error.SetActive(false);
-                contentUser = JsonConvert.DeserializeObject<OverUserModel>(DbData);
-                Debug.Log(contentUser.user.username);
-                contentUser.user.password = form_login.transform.GetChild(2).GetComponent<InputField>().text;
-                form_login.transform.GetChild(1).GetComponent<InputField>().text = "";
-                form_login.transform.GetChild(2).GetComponent<InputField>().text = "";
-                form_login.SetActive(false);
-                access_token = contentUser.access_token;
-                setUser(contentUser);
-                isLoggedin();
-            }
-            else
-            {
-                login_error.SetActive(true);
-                login_error.transform.GetChild(0).GetComponent<Image>().transform.GetChild(0).GetComponent<Text>().text = "Wrong username or password";
-            }
+        {
+            Debug.Log(DbData);
+            login_error.SetActive(false);
+            contentUser = JsonConvert.DeserializeObject<OverUserModel>(DbData);
+            contentUser.user.password = form_login.transform.GetChild(2).GetComponent<InputField>().text;
+            form_login.transform.GetChild(1).GetComponent<InputField>().text = "";
+            form_login.transform.GetChild(2).GetComponent<InputField>().text = "";
+            //form_login.SetActive(false);
+            access_token = contentUser.access_token;
+            setUser(contentUser);
+            isLoggedin();
+        }
+        else
+        {
+            login_error.SetActive(true);
+            login_error.transform.GetChild(0).GetComponent<Image>().transform.GetChild(0).GetComponent<Text>().text = "Wrong username or password";
+            Debug.Log(DbData);
+        }
     }
     public static IEnumerator loginI(string username, string password)
     {
@@ -343,23 +347,51 @@ public class LoginUsers : MonoBehaviour
     {
         if (access_token != "")
         {
-            
-            username = contentUser.user.username;
+            if (contentUser.user.isAdmin)
+            {
+                StartCoroutine(checkAdmin());
+            }else{
+                login_error.SetActive(true);
+                login_error.transform.GetChild(0).GetComponent<Image>().transform.GetChild(0).GetComponent<Text>().text = "You aren't admin";
+            }
+        }
+
+    }
+
+    public IEnumerator checkAdmin()
+    {
+        Boolean isAdmin = false;
+        UnityWebRequest request = new UnityWebRequest("http://localhost:4000/api/users", "GET");
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Authorization", "Bearer " + access_token);
+        yield return request.SendWebRequest();
+        contentArray = JsonConvert.DeserializeObject<List<UserModel>>(request.downloadHandler.text);
+        foreach (UserModel model in contentArray)
+        {
+            Debug.Log(model.username + " " + contentUser.user.username + " " +
+            model.id + " " + contentUser.user.id + " " + model.mail + " " + contentUser.user.mail + " " + model.isAdmin);
+            if ((model.username.Equals(contentUser.user.username)) && (model.id == contentUser.user.id)
+            && (model.mail.Equals(contentUser.user.mail)))
+            {
+                isAdmin = true;
+            }
+        }
+        if (isAdmin)
+        {
+            form_login.SetActive(false);
+            btn_admin.SetActive(true);
             txt_username.GetComponent<Text>().text = username;
             txt_mail.GetComponent<Text>().text = contentUser.user.mail;
             email_window.transform.GetChild(1).GetComponent<InputField>().text = txt_mail.GetComponent<Text>().text;
-            btn_settings.SetActive(true);
-            btn_logout.SetActive(true);
-            btn_login.SetActive(false);
-            if (contentUser.user.isAdmin)
-            {
-                btn_admin.SetActive(true);
-            }
             Dark = contentUser.user.darkmode;
             settingDarkness();
-            SetData("lastname",JsonConvert.SerializeObject(contentUser));
+            SetData("lastname", JsonConvert.SerializeObject(contentUser));
         }
-
+        else
+        {
+            logout();
+            login_error.transform.GetChild(0).GetComponent<Image>().transform.GetChild(0).GetComponent<Text>().text = "You aren't admin";
+        }
     }
     public void logout()
     {
@@ -370,10 +402,10 @@ public class LoginUsers : MonoBehaviour
         setUser(contentUser);
         LoginUsers2.setUser(contentUser);
         access_token = "";
-        closeWindows();
+        //closeWindows();
         btn_logout.SetActive(false);
         btn_admin.SetActive(false);
-        btn_login.SetActive(true);
+        //btn_login.SetActive(true);
         SetData("lastname", "");
     }
     public void register()

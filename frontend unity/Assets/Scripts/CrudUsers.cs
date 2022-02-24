@@ -72,13 +72,6 @@ public class CrudUsers : MonoBehaviour
             }
             var sendToken = new SendToken();
             sendToken.token = LoginUsers.getToken();
-            //Debug.Log(sendToken.token);
-            /*using var client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sendToken.token);
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = await client.GetAsync("http://localhost:4000/api/users");
-            var responseString = await response.Content.ReadAsStringAsync();*/
-            //Debug.Log(responseString);
             UnityWebRequest request = new UnityWebRequest("http://localhost:4000/api/users", "GET");
             request.downloadHandler = new DownloadHandlerBuffer();
             request.SetRequestHeader("Authorization", "Bearer " + sendToken.token);
@@ -112,13 +105,6 @@ public class CrudUsers : MonoBehaviour
             }
             var sendToken = new SendToken();
             sendToken.token = LoginUsers.getToken();
-            //Debug.Log(sendToken.token);
-            /*using var client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sendToken.token);
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = await client.GetAsync("http://localhost:4000/api/users");
-            var responseString = await response.Content.ReadAsStringAsync();*/
-            //Debug.Log(responseString);
             UnityWebRequest request = new UnityWebRequest("http://localhost:4000/api/users", "GET");
             request.downloadHandler = new DownloadHandlerBuffer();
             request.SetRequestHeader("Authorization", "Bearer " + sendToken.token);

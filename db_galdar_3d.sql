@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-02-2022 a las 16:12:50
+-- Tiempo de generación: 24-02-2022 a las 20:35:05
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -120,9 +120,7 @@ INSERT INTO `texts` (`id`, `content`, `mail`, `userId`, `createdAt`, `updatedAt`
 (10, 'Interesting project, not myself sure', 'asoret@email.com', 4, '2021-11-24 18:05:22', '2021-11-24 18:05:22'),
 (11, 'Prueba2 mod', 'asoret@email.com', NULL, '0001-01-01 01:01:36', '2021-12-08 20:22:29'),
 (14, 'Mensaje de prueba web', 'admin@admin.com', 8, '2021-11-26 01:48:46', '2021-11-26 01:48:46'),
-(18, 'trial itch2', 'admin@admin.com', NULL, '0001-01-01 01:01:36', '2021-12-09 19:02:00'),
-(20, '0', 'admin@admin.com', 8, '2021-12-10 16:44:36', '2021-12-10 16:44:36'),
-(25, 'Mensaje desde 3d vista', 'guest@guest.com', NULL, '2022-02-14 19:03:39', '2022-02-14 19:03:39');
+(18, 'trial itch2', 'admin@admin.com', NULL, '0001-01-01 01:01:36', '2021-12-09 19:02:00');
 
 -- --------------------------------------------------------
 
@@ -147,7 +145,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `mail`, `darkmode`, `isAdmin`, `createdAt`, `updatedAt`) VALUES
 (4, 'asoret', '$2a$10$OO2gCH221AqaGEaW/8Bk/u0czFBa9zyLyUABUje2O.APCTcdcTicS', 'asoret@email.com', 0, 1, '2021-10-21 15:21:03', '2021-10-21 15:21:03'),
-(8, 'admin', '$2a$10$sAWnOYAAO3THYDYVgvzh8ukYwpzFnCHv5gLR9ayMqj6l1tYw/oLbO', 'admin@admin.com', 1, 1, '0001-01-01 01:01:36', '2022-02-08 15:43:35'),
+(8, 'admin', '$2a$10$JVbutBd3seu5mEWThD9Z1.jEO0UbYhcxb7JyvOevNCPunkYPsyw..', 'admin@admin.com', 0, 1, '0001-01-01 01:01:36', '2022-02-24 17:55:09'),
 (13, 'another1', '$2a$10$VqVZkFWPUFvX6JMxyHAhmOIQ6fUlKwr30pCvdplOhyy/65dbkcgNi', 'another@gmail.com', 0, 0, '0001-01-01 01:01:36', '2021-12-09 17:24:12'),
 (21, 'TheGamer', '$2a$10$gQm.v7Z4iOx9LHSQDLUnZOieSen/5WruPJAbgUHtuWOSpzGuxEURu', 'theGamer@hotmail.com', 1, 0, '0001-01-01 01:01:36', '2021-12-10 19:16:39');
 
@@ -170,7 +168,7 @@ CREATE TABLE `views` (
 --
 
 INSERT INTO `views` (`id`, `name`, `views`, `createdAt`, `updatedAt`) VALUES
-(1, '3D Vista Main menu', 33, '2022-02-18 18:13:15', '2022-02-18 19:50:50');
+(1, '3D Vista Main menu', 312, '0001-01-01 01:01:36', '2022-02-24 19:31:46');
 
 --
 -- Índices para tablas volcadas
@@ -228,19 +226,19 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT de la tabla `texts`
 --
 ALTER TABLE `texts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `views`
 --
 ALTER TABLE `views`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
