@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/metro/4.1.5/css/metro.min.css">
+</head>
+
+<body>
+    <br></br>
+    <p align="center" style="color:blue">
+        <b>Showing all reviews</b>
+    </p>
+    <p id="date" align="center" style="margin-bottom:-30px;"></p><br></br>
+
+    <div id='myDiv' style="height:400px;">
+
+    <table class='table striped'>
+        <thead>
+            <tr>
+                <th>Content</th>
+                <th>Username</th>
+                <th>Place</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each review}}
+            <tr>
+                <td>{{content}}</td>
+                <td>{{username}}</td>
+                <td>{{target}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <script>
+        n =  new Date();
+        y = n.getFullYear();
+        m = n.getMonth() + 1;
+        d = n.getDate();
+        document.getElementById("date").innerHTML = d + "/" + m + "/" + y;
+    </script>
+    <div style='page-break-after: always;'>
+    </div>
+</body>
+
+</html>

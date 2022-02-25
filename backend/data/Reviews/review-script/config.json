@@ -1,0 +1,14 @@
+{
+    "name": "review-script",
+    "creationDate": {
+        "$$date": 1645814496005
+    },
+    "modificationDate": {
+        "$$date": 1645814615234
+    },
+    "scope": "template",
+    "isGlobal": false,
+    "shortid": "FUZiDbw",
+    "_id": "2IKbQZAtz6BPotNl",
+    "$entitySet": "scripts"
+}

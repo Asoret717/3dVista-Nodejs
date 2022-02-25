@@ -1,0 +1,26 @@
+{
+    "name": "ReportReview.pdf",
+    "recipe": "chrome-pdf",
+    "engine": "handlebars",
+    "chrome": {
+        "printBackground": true,
+        "displayHeaderFooter": true
+    },
+    "creationDate": {
+        "$$date": 1645814495998
+    },
+    "modificationDate": {
+        "$$date": 1645814800071
+    },
+    "scripts": [
+        {
+            "shortid": "FUZiDbw"
+        }
+    ],
+    "htmlToXlsx": {
+        "htmlEngine": "chrome"
+    },
+    "shortid": "ReviewsReport.pdf",
+    "_id": "rw30JI0w62xTsQra",
+    "$entitySet": "templates"
+}

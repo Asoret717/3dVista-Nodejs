@@ -1,0 +1,14 @@
+{
+    "name": "message-script",
+    "creationDate": {
+        "$$date": 1645814815083
+    },
+    "modificationDate": {
+        "$$date": 1645814925973
+    },
+    "scope": "template",
+    "isGlobal": false,
+    "shortid": "Gvt-1pR",
+    "_id": "qmYWGfMR6eyFUTO9",
+    "$entitySet": "scripts"
+}
