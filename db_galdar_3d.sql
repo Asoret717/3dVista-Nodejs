@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-02-2022 a las 20:35:05
+-- Tiempo de generación: 25-02-2022 a las 21:02:17
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -145,7 +145,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `mail`, `darkmode`, `isAdmin`, `createdAt`, `updatedAt`) VALUES
 (4, 'asoret', '$2a$10$OO2gCH221AqaGEaW/8Bk/u0czFBa9zyLyUABUje2O.APCTcdcTicS', 'asoret@email.com', 0, 1, '2021-10-21 15:21:03', '2021-10-21 15:21:03'),
-(8, 'admin', '$2a$10$JVbutBd3seu5mEWThD9Z1.jEO0UbYhcxb7JyvOevNCPunkYPsyw..', 'admin@admin.com', 0, 1, '0001-01-01 01:01:36', '2022-02-24 17:55:09'),
+(8, 'admin', '$2a$10$zeVhJ66kLQnWoyrLmDCzqetPbwMyeq2owoOiLLv4efXNo1zgrEMSG', 'admin@admin.com', 1, 1, '0001-01-01 01:01:36', '2022-02-25 18:30:46'),
 (13, 'another1', '$2a$10$VqVZkFWPUFvX6JMxyHAhmOIQ6fUlKwr30pCvdplOhyy/65dbkcgNi', 'another@gmail.com', 0, 0, '0001-01-01 01:01:36', '2021-12-09 17:24:12'),
 (21, 'TheGamer', '$2a$10$gQm.v7Z4iOx9LHSQDLUnZOieSen/5WruPJAbgUHtuWOSpzGuxEURu', 'theGamer@hotmail.com', 1, 0, '0001-01-01 01:01:36', '2021-12-10 19:16:39');
 
@@ -168,7 +168,10 @@ CREATE TABLE `views` (
 --
 
 INSERT INTO `views` (`id`, `name`, `views`, `createdAt`, `updatedAt`) VALUES
-(1, '3D Vista Main menu', 312, '0001-01-01 01:01:36', '2022-02-24 19:31:46');
+(1, '3D Vista Main menu', 371, '0001-01-01 01:01:36', '2022-02-25 19:54:46'),
+(2, '360 image 1', 200, '0001-01-01 01:01:36', '2022-02-25 18:31:25'),
+(3, '360 image 2', 140, '0001-01-01 01:01:36', '2022-02-25 18:31:31'),
+(4, '360 image 3', 0, '0001-01-01 01:01:36', '2022-02-25 18:37:48');
 
 --
 -- Índices para tablas volcadas
@@ -232,13 +235,13 @@ ALTER TABLE `texts`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `views`
 --
 ALTER TABLE `views`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas

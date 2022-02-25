@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 public class CrudMessages : MonoBehaviour
 {
@@ -207,6 +208,13 @@ public class CrudMessages : MonoBehaviour
         /*using var client = new HttpClient();
         HttpResponseMessage response = await client.PutAsync("http://localhost:4000/api/texts/" + idUpdate, updateData);*/
         read();
+    }
+
+    [DllImport("__Internal")]
+    private static extern void OpenURLInExternalWindow(string url);
+
+    public void report(){
+        OpenURLInExternalWindow("http://localhost:5488/templates/MessagesReport.pdf");
     }
 
     // Update is called once per frame

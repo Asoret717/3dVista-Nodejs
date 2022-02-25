@@ -80,17 +80,12 @@ public class LoginUsers : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log(GetData("lastname"));
         //txt_username.GetComponent<Text>().text = GetData("lastname");
         //closeWindows();
         contentUser = LoginUsers2.getUser();
         if (GetData("lastname").StartsWith("{\"user\":{\"id\""))
         {
             contentUser = JsonConvert.DeserializeObject<OverUserModel>(GetData("lastname"));
-        }
-        if (contentUser == null)
-        {
-            contentUser = Crud.getUser();
         }
         if (contentUser != null)
         {
@@ -99,6 +94,7 @@ public class LoginUsers : MonoBehaviour
         }
         else
         {
+            contentUser = Crud.getUser();
             access_token = "";
         }
         isLoggedin();
@@ -351,9 +347,12 @@ public class LoginUsers : MonoBehaviour
             {
                 StartCoroutine(checkAdmin());
             }else{
+                form_login.SetActive(true);
                 login_error.SetActive(true);
                 login_error.transform.GetChild(0).GetComponent<Image>().transform.GetChild(0).GetComponent<Text>().text = "You aren't admin";
             }
+        }else{
+            form_login.SetActive(true);
         }
 
     }
@@ -389,6 +388,7 @@ public class LoginUsers : MonoBehaviour
         }
         else
         {
+            form_login.SetActive(true);
             logout();
             login_error.transform.GetChild(0).GetComponent<Image>().transform.GetChild(0).GetComponent<Text>().text = "You aren't admin";
         }

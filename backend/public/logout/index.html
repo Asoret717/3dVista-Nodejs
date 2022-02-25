@@ -7,13 +7,16 @@
 
 <body>
   <div>
-    <h2 style="text-align: center;">You are logged in</h2>
+    <h4 style="text-align: center;">You are logged in</h4>
     <div style="text-align: center;">
-      <h1 id="demo" style="background-color: rgb(32, 32, 32); color: white;"></h1>
+      <h2 id="demo" style="background-color: rgb(32, 32, 32); color: white;"></h2>
 
       <button class="testbutton2" type="button" onclick="contact()">Contact</button></br></br>
       <button class="testbutton3" type="button" onclick="logout()">Log out</button></br></br>
-      <button id="admin" class="testbutton" type="button" style="display:none;margin: 0 auto;" onclick="unity()">Admin</button>
+      <button id="admin" class="testbutton4" type="button" style="display:none;margin: 0 auto;" onclick="unity()">Admin</button><br>
+      <button id="admin2" class="testbutton4" type="button" style="display:none;margin: 0 auto;" onclick="reportViews()">Views</button>
+      <button id="admin3" class="testbutton4" type="button" style="display:none;margin: 0 auto;" onclick="reportReviews()">Reviews</button>
+      <button id="admin4" class="testbutton4" type="button" style="display:none;margin: 0 auto;" onclick="reportMessages()">Messages</button>
     </div>
   </div>
 
@@ -27,6 +30,12 @@
     if(user.user.isAdmin){
       var x = document.getElementById("admin");
       x.style.display = "block";
+      var x = document.getElementById("admin2");
+      x.style.display = "inline-block";
+      var x = document.getElementById("admin3");
+      x.style.display = "inline-block";
+      var x = document.getElementById("admin4");
+      x.style.display = "inline-block";
     }
     
 
@@ -39,6 +48,15 @@
     }
     function unity() {
       window.open("http://localhost:4000/webgl/", '_blank').focus();
+    }
+    function reportViews() {
+      window.open("http://localhost:5488/templates/ViewsReport.pdf",'_blank').focus();
+    }
+    function reportReviews() {
+      window.open("http://localhost:5488/templates/ReviewsReport.pdf", '_blank').focus();
+    }
+    function reportMessages() {
+      window.open("http://localhost:5488/templates/MessagesReport.pdf", '_blank').focus();
     }
   </script>
 

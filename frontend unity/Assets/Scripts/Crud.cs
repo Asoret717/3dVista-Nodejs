@@ -221,15 +221,13 @@ public class Crud : MonoBehaviour
     
     // Update is called once per frame
     [DllImport("__Internal")]
-     private static extern void OpenURLInExternalWindow(string url);
+    private static extern void OpenURLInExternalWindow(string url);
+
+    public void report(){
+        OpenURLInExternalWindow("http://localhost:5488/templates/ViewsReport.pdf");
+    }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab)){
-            OpenURLInExternalWindow("http://localhost:5488/templates/ImagesReport.pdf");
-        }
 
-        if(Input.GetKeyDown(KeyCode.LeftShift)){
-            OpenURLInExternalWindow("http://localhost:8080/Advanced%20Reality%20Help.html");
-        }
     }
 }

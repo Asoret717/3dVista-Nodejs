@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 public class CrudComments : MonoBehaviour
 {
@@ -218,6 +219,13 @@ public class CrudComments : MonoBehaviour
         /*using var client = new HttpClient();
         HttpResponseMessage response = await client.PutAsync("http://localhost:4000/api/reviews/" + idUpdate, updateData);*/
         read();
+    }
+
+    [DllImport("__Internal")]
+    private static extern void OpenURLInExternalWindow(string url);
+
+    public void report(){
+        OpenURLInExternalWindow("http://localhost:5488/templates/ReviewsReport.pdf");
     }
 
     // Update is called once per frame
