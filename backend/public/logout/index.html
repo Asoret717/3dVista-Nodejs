@@ -6,13 +6,14 @@
 </head>
 
 <body>
-  <div style="left:100px">
-    <h2>You are logged in</h2>
+  <div>
+    <h2 style="text-align: center;">You are logged in</h2>
     <div style="text-align: center;">
-      <h1 id="demo" style="background-color: rgb(32, 32, 32); color: white;"></h1></br></br>
+      <h1 id="demo" style="background-color: rgb(32, 32, 32); color: white;"></h1>
 
       <button class="testbutton2" type="button" onclick="contact()">Contact</button></br></br>
-      <button class="testbutton3" type="button" onclick="logout()">Log out</button>
+      <button class="testbutton3" type="button" onclick="logout()">Log out</button></br></br>
+      <button id="admin" class="testbutton" type="button" style="display:none;margin: 0 auto;" onclick="unity()">Admin</button>
     </div>
   </div>
 
@@ -23,12 +24,21 @@
     var user = JSON.parse(userData);
     document.getElementById("demo").innerHTML = user.user.username;
 
+    if(user.user.isAdmin){
+      var x = document.getElementById("admin");
+      x.style.display = "block";
+    }
+    
+
     function logout() {
       localStorage.setItem("lastname", "");
       window.location.href = "http://localhost:4000/loginForm/";
     }
     function contact() {
       window.location.href = "http://localhost:4000/contactForm/";
+    }
+    function unity() {
+      window.open("http://localhost:4000/webgl/", '_blank').focus();
     }
   </script>
 
