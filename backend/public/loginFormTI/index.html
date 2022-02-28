@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="http://localhost:4000/loginForm/style.css">
+</head>
+
+<body onload="Read()">
+  <div style="left:100px;">
+    <h2 style="text-align: center;">Log in to send a message</h2>
+    <div style="text-align: center;">
+    <p style="display:inline-block;">Username: &nbsp;</p><input id="username" class="css-input" spellcheck="false"></br>
+    <p style="display:inline-block;">Password: &nbsp;</p><input type="password" id="password" class="css-input"
+      spellcheck="false"></br></br>
+    
+      <button class="testbutton" type="button" onclick="login()">Log in</button>
+      <p id="demo" style="background-color: rgb(61, 0, 0); color: white;"></p>
+      <h3 style="text-align: center;">Comments:</h3>
+      <p id="demo2"></p>
+    </div>
+  </div>
+
+
+  <script>
+    if (localStorage.getItem("lastname").startsWith("{\"user\":{\"id\"")) {
+      window.location.href = "http://localhost:4000/CommentsFormViewerTI/";
+    }
+    function login() {
+      let username = document.getElementById("username").value;
+      let password = document.getElementById("password").value;
+      let text;
+      if (username != "" && password != "") {
+        var utf8Encode = new TextEncoder();
+        var arrayBuffer = utf8Encode.encode(username + ":" + password);
+        var base64String = btoa(String.fromCharCode.apply(null, new Uint8Array(arrayBuffer)));
+        var encodedText = base64String;
+
+        var request = new XMLHttpRequest();
+        request.open("POST", "http://localhost:4000/api/users/signin", true);
+
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.setRequestHeader("Authorization", "Basic " + encodedText);
+
+        request.onload = function (req, response) {
+          var resp = this.response;
+          if (resp.startsWith("{\"user\":{\"id\"")) {
+            text = resp;
+            localStorage.setItem("lastname", resp);
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("demo").innerHTML = text;
+            window.location.href = "http://localhost:4000/CommentsFormViewerTI/";
+          } else {
+            text = "Wrong username or password";
+          }
+          document.getElementById("demo").innerHTML = text;
+        };
+        request.send();
+      } else {
+        text = "You didn't write";
+        document.getElementById("demo").innerHTML = text;
+      }
+    }
+
+    function Read() {
+      let text = "";
+      var request = new XMLHttpRequest();
+      request.open('GET', 'http://localhost:4000/api/reviews', true);
+
+      request.onload = function () {
+        var resp = this.response;
+
+        var reviewArray = JSON.parse(resp);
+        var review = reviewArray.reverse();
+        for (let i = 0; i < review.length; i++) {
+          if (review[i].target == "National Park Timanfaya") {
+            text += "<p style='background-color: rgb(243, 243, 243); color: black;' ><b style='color: rgb(61, 0, 80);''>"
+              + review[i].username + ":</b> " + review[i].content + "</p>";
+          }
+        }
+        document.getElementById("demo2").innerHTML = text + "<br>";
+      };
+      request.send();
+    }
+
+  </script>
+
+</body>
+
+</html>

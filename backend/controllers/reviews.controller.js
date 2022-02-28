@@ -7,7 +7,7 @@ exports.create = (req, res) => {
   // Validate request
   if (!req.body.content || !req.body.username || !req.body.target) {
     res.status(400).send({
-      message: "Content can not be empty!"
+      message: "Content of review can not be empty!"
     });
     return;
   }
