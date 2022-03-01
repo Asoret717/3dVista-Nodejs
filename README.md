@@ -44,27 +44,35 @@ R.6.4. Un apartado en la aplicación donde podrá registrarse un nuevo usuario 	
 
 ## Cases of use:
 
-Like I said before, guests can watch reviews and images, but you need to be a logged in user to write reviews and messages. Only admins
+![image](https://user-images.githubusercontent.com/81707462/156245145-1cc9f8a4-4388-4367-934a-1e17de67db71.png)
+
+Like I said before, guests can watch reviews make views, but you need to be a logged in user to write reviews and messages. Only admins
 can manage and watch all the tables.
 
 ### UML Model:
 
-![image](https://user-images.githubusercontent.com/81707462/145825355-704f1baa-0291-4c36-abdf-1e7c1b6ec3ac.png)
+![image](https://user-images.githubusercontent.com/81707462/156244795-652ce726-3cdf-4cd7-b177-1f7448e2b58b.png)
+
+### Relational Model:
+
+![image](https://user-images.githubusercontent.com/81707462/156244888-41ec6c07-05fc-4efa-b99f-fa0941e08167.png)
+
+
 
 ## Description of the operation of the system and technical specifications:
 
-The frontend made in unity which you can run as a webpage, uses a nodejs backend to manage and connect to the sql database. 
+The frontend is made in 3dVista which you can run as a webpage, uses a nodejs backend to manage and connect to the sql database. 
 
-Depending in the way you run the page you may need internet connection or not, In the way I show you will need it. Because it is
-a web page which lets you upload and host your unity webgl build.
+You will need to install node js and other modules in order to make it work, I will talk about it later.
 
 ## Interfaces
 
 ### Design
 
 #### Prototype:
+![image](https://user-images.githubusercontent.com/81707462/156245499-f04768c5-a764-4df6-8a8a-4e3c1a92fdc3.png)
 
-![mockup](https://user-images.githubusercontent.com/81707462/146037980-c12dfc18-e2d7-40dd-939b-73867237b529.png)
+
 
 #### Final Screenshots:
 
