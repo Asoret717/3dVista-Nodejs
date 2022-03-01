@@ -248,7 +248,7 @@ Here you can watch the comments of other users or make your own if you are logge
 
 ##### 360 place
 
-The controls are intuitive, and the arrows and hotspots are self-exaplanatory just click.
+The controls are intuitive, and the arrows and hotspots are self-explanatory just click.
 
 ![image](https://user-images.githubusercontent.com/81707462/156249758-df66a7ef-f8f4-4853-a3e3-7c99da58a0ff.png)
 ![image](https://user-images.githubusercontent.com/81707462/156249853-3a898091-d91b-4678-81f6-f8fabad9e5cc.png)
