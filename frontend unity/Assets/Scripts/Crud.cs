@@ -24,13 +24,14 @@ public class Crud : MonoBehaviour
     }
 
     public static string content;
+    public static string testViewGet;
     public static List<ViewsModel> contentArray;
     public static string idUpdate;
     public static string idDelete;
 
     public static LoginUsers.OverUserModel contentUser = null;
-    public static LoginUsers.OverUserModel getUser(){ return contentUser; }
-    public static void setUser(LoginUsers.OverUserModel user){ contentUser = user; }
+    public static LoginUsers.OverUserModel getUser() { return contentUser; }
+    public static void setUser(LoginUsers.OverUserModel user) { contentUser = user; }
 
     public static Boolean Dark = false;
     public static void setDark(Boolean valueDark) { Dark = valueDark; }
@@ -40,7 +41,7 @@ public class Crud : MonoBehaviour
 
     void Start()
     {
-        
+
         txt_username.GetComponent<Text>().text = LoginUsers.getUsername();
         Dark = LoginUsers.getDark();
         contentUser = LoginUsers.getUser();
@@ -66,10 +67,8 @@ public class Crud : MonoBehaviour
             {
                 Destroy(itemParent.transform.GetChild(i).gameObject);
             }
-            UnityWebRequest request = new UnityWebRequest("http://localhost:4000/api/views", "GET");
-            request.downloadHandler = new DownloadHandlerBuffer();
-            yield return request.SendWebRequest();
-            contentArray = JsonConvert.DeserializeObject<List<ViewsModel>>(request.downloadHandler.text);
+            yield return ReadViewsI();
+            contentArray = JsonConvert.DeserializeObject<List<ViewsModel>>(testViewGet);
             foreach (ViewsModel model in contentArray)
             {
                 GameObject tmp_item = Instantiate(item, itemParent.transform);
@@ -95,8 +94,8 @@ public class Crud : MonoBehaviour
             }
             UnityWebRequest request = new UnityWebRequest("http://localhost:4000/api/views", "GET");
             request.downloadHandler = new DownloadHandlerBuffer();
-            yield return request.SendWebRequest();
-            contentArray = JsonConvert.DeserializeObject<List<ViewsModel>>(request.downloadHandler.text);
+            yield return ReadViewsI();
+            contentArray = JsonConvert.DeserializeObject<List<ViewsModel>>(testViewGet);
             foreach (ViewsModel model in contentArray)
             {
                 GameObject tmp_item = Instantiate(item, itemParent.transform);
@@ -108,6 +107,14 @@ public class Crud : MonoBehaviour
                 tmp_item.transform.GetChild(2).GetComponent<Text>().text = model.views.ToString();
             }
         }
+    }
+
+    public static IEnumerator ReadViewsI()
+    {
+        UnityWebRequest request = new UnityWebRequest("http://localhost:4000/api/views", "GET");
+        request.downloadHandler = new DownloadHandlerBuffer();
+        yield return request.SendWebRequest();
+        testViewGet = request.downloadHandler.text;
     }
 
     public void changeDarkness()
@@ -165,7 +172,7 @@ public class Crud : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("name", view.name);
         form.AddField("views", view.views);
-        UnityWebRequest request = UnityWebRequest.Post("http://localhost:4000/api/views",form);
+        UnityWebRequest request = UnityWebRequest.Post("http://localhost:4000/api/views", form);
         request.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         request.downloadHandler = new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
@@ -183,8 +190,9 @@ public class Crud : MonoBehaviour
     {
         StartCoroutine(deleteI());
     }
-    IEnumerator deleteI(){
-        UnityWebRequest request=UnityWebRequest.Delete("http://localhost:4000/api/views/" + idDelete);
+    IEnumerator deleteI()
+    {
+        UnityWebRequest request = UnityWebRequest.Delete("http://localhost:4000/api/views/" + idDelete);
         request.downloadHandler = new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
         read();
@@ -205,25 +213,27 @@ public class Crud : MonoBehaviour
         StartCoroutine(updateI());
     }
 
-    IEnumerator updateI(){
+    IEnumerator updateI()
+    {
         var viewUpdate = new ViewsModel();
         viewUpdate.id = int.Parse(idUpdate);
         viewUpdate.name = form_update.transform.GetChild(1).GetComponent<InputField>().text;
         viewUpdate.views = int.Parse(form_update.transform.GetChild(2).GetComponent<InputField>().text);
         var json = JsonConvert.SerializeObject(viewUpdate);
         var byteArray = System.Text.Encoding.UTF8.GetBytes(json);
-        UnityWebRequest request = UnityWebRequest.Put("http://localhost:4000/api/views/"+idUpdate,byteArray);
+        UnityWebRequest request = UnityWebRequest.Put("http://localhost:4000/api/views/" + idUpdate, byteArray);
         request.SetRequestHeader("Content-Type", "application/json");
         request.downloadHandler = new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
         read();
     }
-    
+
     // Update is called once per frame
     [DllImport("__Internal")]
     private static extern void OpenURLInExternalWindow(string url);
 
-    public void report(){
+    public void report()
+    {
         OpenURLInExternalWindow("http://localhost:5488/templates/ViewsReport.pdf");
     }
     void Update()

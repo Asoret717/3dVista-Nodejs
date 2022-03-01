@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-02-2022 a las 21:02:17
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.10
+-- Tiempo de generación: 01-03-2022 a las 22:55:56
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -92,7 +92,8 @@ INSERT INTO `reviews` (`id`, `content`, `username`, `target`, `userId`, `created
 (31, 'Called \"La Graciosa\" but I don\'t see the funny part', 'TheGamer', 'La Graciosa', 21, '2021-12-10 19:20:58', '2021-12-10 19:20:58'),
 (32, 'Praise the sun', 'TheGamer', 'La Graciosa', 21, '2021-12-10 19:21:31', '2021-12-10 19:21:31'),
 (33, 'Ejemplo de comentario desde 3dVista', 'Guest', 'Playa Blanca', NULL, '2022-02-14 16:02:18', '2022-02-14 16:02:18'),
-(36, 'Comment from 3d vista', 'Guest', 'Playa Blanca', NULL, '2022-02-14 19:05:29', '2022-02-14 19:05:29');
+(36, 'Comment from 3d vista', 'Guest', 'Playa Blanca', NULL, '2022-02-14 19:05:29', '2022-02-14 19:05:29'),
+(37, 'Admin comment Playa blanca', 'admin', 'Playa Blanca', 8, '2022-02-28 23:08:40', '2022-02-28 23:08:40');
 
 -- --------------------------------------------------------
 
@@ -145,7 +146,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `mail`, `darkmode`, `isAdmin`, `createdAt`, `updatedAt`) VALUES
 (4, 'asoret', '$2a$10$OO2gCH221AqaGEaW/8Bk/u0czFBa9zyLyUABUje2O.APCTcdcTicS', 'asoret@email.com', 0, 1, '2021-10-21 15:21:03', '2021-10-21 15:21:03'),
-(8, 'admin', '$2a$10$zeVhJ66kLQnWoyrLmDCzqetPbwMyeq2owoOiLLv4efXNo1zgrEMSG', 'admin@admin.com', 1, 1, '0001-01-01 01:01:36', '2022-02-25 18:30:46'),
+(8, 'admin', '$2a$10$R56vNg4k/dto/Jw2KUBRzuURRbs/u2Pbf3Zze1ZhJWbELbtqHZwkW', 'admin@admin.com', 1, 1, '0001-01-01 01:01:36', '2022-02-27 19:43:52'),
 (13, 'another1', '$2a$10$VqVZkFWPUFvX6JMxyHAhmOIQ6fUlKwr30pCvdplOhyy/65dbkcgNi', 'another@gmail.com', 0, 0, '0001-01-01 01:01:36', '2021-12-09 17:24:12'),
 (21, 'TheGamer', '$2a$10$gQm.v7Z4iOx9LHSQDLUnZOieSen/5WruPJAbgUHtuWOSpzGuxEURu', 'theGamer@hotmail.com', 1, 0, '0001-01-01 01:01:36', '2021-12-10 19:16:39');
 
@@ -168,10 +169,11 @@ CREATE TABLE `views` (
 --
 
 INSERT INTO `views` (`id`, `name`, `views`, `createdAt`, `updatedAt`) VALUES
-(1, '3D Vista Main menu', 371, '0001-01-01 01:01:36', '2022-02-25 19:54:46'),
-(2, '360 image 1', 200, '0001-01-01 01:01:36', '2022-02-25 18:31:25'),
-(3, '360 image 2', 140, '0001-01-01 01:01:36', '2022-02-25 18:31:31'),
-(4, '360 image 3', 0, '0001-01-01 01:01:36', '2022-02-25 18:37:48');
+(1, '3D Vista Main menu', 390, '0001-01-01 01:01:36', '2022-03-01 21:55:20'),
+(2, 'Playa Blanca', 6, '0001-01-01 01:01:36', '2022-03-01 21:26:20'),
+(3, 'Arrecife', 2, '0001-01-01 01:01:36', '2022-03-01 00:03:37'),
+(4, 'Timanfaya', 2, '0001-01-01 01:01:36', '2022-02-28 23:59:30'),
+(5, 'La Graciosa', 3, '0001-01-01 01:01:36', '2022-03-01 00:03:32');
 
 --
 -- Índices para tablas volcadas
@@ -223,7 +225,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT de la tabla `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT de la tabla `texts`
@@ -235,7 +237,7 @@ ALTER TABLE `texts`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `views`

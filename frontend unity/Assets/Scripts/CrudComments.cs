@@ -14,7 +14,8 @@ using System.Runtime.InteropServices;
 public class CrudComments : MonoBehaviour
 {
 
-    public class ReviewModel{
+    public class ReviewModel
+    {
         public int id { get; set; }
         public string content { get; set; }
         public string username { get; set; }
@@ -25,45 +26,48 @@ public class CrudComments : MonoBehaviour
     }
 
     public static string content;
+    public static string testCommentsGet;
     public static List<ReviewModel> contentArray;
     public static string idUpdate;
     public static string idDelete;
 
     public static LoginUsers.OverUserModel contentUser = null;
-    public static LoginUsers.OverUserModel getUser(){ return contentUser; }
-    public static void setUser(LoginUsers.OverUserModel user){ contentUser = user; }
+    public static LoginUsers.OverUserModel getUser() { return contentUser; }
+    public static void setUser(LoginUsers.OverUserModel user) { contentUser = user; }
 
     public static Boolean Dark = false;
 
     public GameObject itemParent, item, form_create, form_update, background, bkg_create, bkg_update, bkg_delete, txt_delete, txt_username;
 
-    void Start(){
+    void Start()
+    {
         txt_username.GetComponent<Text>().text = LoginUsers.getUsername();
         contentUser = LoginUsers.getUser();
-        Dark=Crud.getDark();
+        Dark = Crud.getDark();
         read();
     }
-    public void read(){
+    public void read()
+    {
         StartCoroutine(readI());
     }
-    IEnumerator readI(){
-        if (Dark){
-            background.GetComponent<Image>().color = new Color32(52,52,55,255);
-            bkg_create.GetComponent<Image>().color = new Color32(52,52,55,255);
-            bkg_update.GetComponent<Image>().color = new Color32(52,52,55,255);
-            bkg_delete.GetComponent<Image>().color = new Color32(52,52,55,255);
+    IEnumerator readI()
+    {
+        if (Dark)
+        {
+            background.GetComponent<Image>().color = new Color32(52, 52, 55, 255);
+            bkg_create.GetComponent<Image>().color = new Color32(52, 52, 55, 255);
+            bkg_update.GetComponent<Image>().color = new Color32(52, 52, 55, 255);
+            bkg_delete.GetComponent<Image>().color = new Color32(52, 52, 55, 255);
             txt_delete.GetComponent<Text>().color = Color.white;
 
-            for (int i = 0; i < itemParent.transform.childCount; i++){
+            for (int i = 0; i < itemParent.transform.childCount; i++)
+            {
                 Destroy(itemParent.transform.GetChild(i).gameObject);
             }
-            /*using var client = new HttpClient();
-            content = await client.GetStringAsync("http://localhost:4000/api/reviews");*/
-            UnityWebRequest request = new UnityWebRequest("http://localhost:4000/api/reviews", "GET");
-            request.downloadHandler = new DownloadHandlerBuffer();
-            yield return request.SendWebRequest();
-            contentArray = JsonConvert.DeserializeObject<List<ReviewModel>>(request.downloadHandler.text);
-            foreach (ReviewModel model in contentArray){
+            yield return ReadCommentsI();
+            contentArray = JsonConvert.DeserializeObject<List<ReviewModel>>(testCommentsGet);
+            foreach (ReviewModel model in contentArray)
+            {
                 GameObject tmp_item = Instantiate(item, itemParent.transform);
                 tmp_item.transform.GetChild(0).GetComponent<Text>().color = Color.white;
                 tmp_item.transform.GetChild(0).GetComponent<Text>().text = model.id.ToString();
@@ -74,23 +78,23 @@ public class CrudComments : MonoBehaviour
                 tmp_item.transform.GetChild(3).GetComponent<Text>().color = Color.white;
                 tmp_item.transform.GetChild(3).GetComponent<Text>().text = model.target;
             }
-        }else{
-            background.GetComponent<Image>().color = new Color32(255,255,255,255);
-            bkg_create.GetComponent<Image>().color = new Color32(255,255,255,255);
-            bkg_update.GetComponent<Image>().color = new Color32(255,255,255,255);
-            bkg_delete.GetComponent<Image>().color = new Color32(255,255,255,255);
+        }
+        else
+        {
+            background.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            bkg_create.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            bkg_update.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            bkg_delete.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             txt_delete.GetComponent<Text>().color = Color.black;
 
-            for (int i = 0; i < itemParent.transform.childCount; i++){
+            for (int i = 0; i < itemParent.transform.childCount; i++)
+            {
                 Destroy(itemParent.transform.GetChild(i).gameObject);
             }
-            /*using var client = new HttpClient();
-            content = await client.GetStringAsync("http://localhost:4000/api/reviews");*/
-            UnityWebRequest request = new UnityWebRequest("http://localhost:4000/api/reviews", "GET");
-            request.downloadHandler = new DownloadHandlerBuffer();
-            yield return request.SendWebRequest();
-            contentArray = JsonConvert.DeserializeObject<List<ReviewModel>>(request.downloadHandler.text);
-            foreach (ReviewModel model in contentArray){
+            yield return ReadCommentsI();
+            contentArray = JsonConvert.DeserializeObject<List<ReviewModel>>(testCommentsGet);
+            foreach (ReviewModel model in contentArray)
+            {
                 GameObject tmp_item = Instantiate(item, itemParent.transform);
                 tmp_item.transform.GetChild(0).GetComponent<Text>().color = Color.black;
                 tmp_item.transform.GetChild(0).GetComponent<Text>().text = model.id.ToString();
@@ -102,6 +106,14 @@ public class CrudComments : MonoBehaviour
                 tmp_item.transform.GetChild(3).GetComponent<Text>().text = model.target;
             }
         }
+    }
+
+    public static IEnumerator ReadCommentsI()
+    {
+        UnityWebRequest request = new UnityWebRequest("http://localhost:4000/api/reviews", "GET");
+        request.downloadHandler = new DownloadHandlerBuffer();
+        yield return request.SendWebRequest();
+        testCommentsGet = request.downloadHandler.text;
     }
 
     public void changeDarkness()
@@ -148,10 +160,12 @@ public class CrudComments : MonoBehaviour
         userUpdate = null;
     }
 
-    public void create(){
+    public void create()
+    {
         StartCoroutine(createI());
     }
-    IEnumerator createI(){
+    IEnumerator createI()
+    {
         var review = new ReviewModel();
         review.content = form_create.transform.GetChild(1).GetComponent<InputField>().text;
         review.username = form_create.transform.GetChild(2).GetComponent<InputField>().text;
@@ -160,7 +174,7 @@ public class CrudComments : MonoBehaviour
         form.AddField("content", review.content);
         form.AddField("username", review.username);
         form.AddField("target", review.target);
-        UnityWebRequest request = UnityWebRequest.Post("http://localhost:4000/api/reviews",form);
+        UnityWebRequest request = UnityWebRequest.Post("http://localhost:4000/api/reviews", form);
         request.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         request.downloadHandler = new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
@@ -176,16 +190,19 @@ public class CrudComments : MonoBehaviour
         read();
     }
 
-    public void get_id_delete(GameObject obj_delete){
+    public void get_id_delete(GameObject obj_delete)
+    {
         idDelete = obj_delete.transform.GetChild(0).GetComponent<Text>().text;
     }
-    public void delete(){
+    public void delete()
+    {
         StartCoroutine(deleteI());
     }
-    IEnumerator deleteI(){
+    IEnumerator deleteI()
+    {
         /*using var client = new HttpClient();
         HttpResponseMessage response = await client.DeleteAsync("http://localhost:4000/api/reviews/" + idDelete);*/
-        UnityWebRequest request=UnityWebRequest.Delete("http://localhost:4000/api/reviews/" + idDelete);
+        UnityWebRequest request = UnityWebRequest.Delete("http://localhost:4000/api/reviews/" + idDelete);
         request.downloadHandler = new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
         read();
@@ -193,17 +210,20 @@ public class CrudComments : MonoBehaviour
 
     string id_update;
 
-    public void open_form_update(GameObject obj_update){
+    public void open_form_update(GameObject obj_update)
+    {
         form_update.SetActive(true);
         form_update.transform.GetChild(1).GetComponent<InputField>().text = obj_update.transform.GetChild(1).GetComponent<Text>().text;
         form_update.transform.GetChild(2).GetComponent<InputField>().text = obj_update.transform.GetChild(2).GetComponent<Text>().text;
         form_update.transform.GetChild(3).GetComponent<InputField>().text = obj_update.transform.GetChild(3).GetComponent<Text>().text;
         idUpdate = obj_update.transform.GetChild(0).GetComponent<Text>().text;
     }
-    public void update(){
+    public void update()
+    {
         StartCoroutine(updateI());
     }
-    IEnumerator updateI(){
+    IEnumerator updateI()
+    {
         var reviewUpdate = new ReviewModel();
         reviewUpdate.id = int.Parse(idUpdate);
         reviewUpdate.content = form_update.transform.GetChild(1).GetComponent<InputField>().text;
@@ -212,7 +232,7 @@ public class CrudComments : MonoBehaviour
         var json = JsonConvert.SerializeObject(reviewUpdate);
         //var updateData = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
         var byteArray = System.Text.Encoding.UTF8.GetBytes(json);
-        UnityWebRequest request = UnityWebRequest.Put("http://localhost:4000/api/reviews/"+idUpdate,byteArray);
+        UnityWebRequest request = UnityWebRequest.Put("http://localhost:4000/api/reviews/" + idUpdate, byteArray);
         request.SetRequestHeader("Content-Type", "application/json");
         request.downloadHandler = new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
@@ -224,7 +244,8 @@ public class CrudComments : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void OpenURLInExternalWindow(string url);
 
-    public void report(){
+    public void report()
+    {
         OpenURLInExternalWindow("http://localhost:5488/templates/ReviewsReport.pdf");
     }
 
