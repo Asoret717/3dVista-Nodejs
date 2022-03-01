@@ -265,7 +265,7 @@ without experience could have made, but the important part of joining sql and co
 in windows on top of the program, that can't affect 3dvista actions, and had to use local storage to try things, but I don't think it's
 that save or proffesional to manager accounts with it, I will have to find a different way in the future.
 
-![image](https://user-images.githubusercontent.com/81707462/156252246-0d7d883e-0a79-4fe3-91b7-9894ea2d8e99.png)
+![image](https://user-images.githubusercontent.com/81707462/156253840-fb394fe6-32ed-4c43-ad10-a1b81c411729.png)
 
 ## Repositories
 
