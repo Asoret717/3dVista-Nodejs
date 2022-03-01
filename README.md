@@ -1,64 +1,47 @@
 # 3dVista-Nodejs
-An example of 3d Vista with Nodejs backend
+An example of 3d Vista with Nodejs backend.
 
 ![image](https://user-images.githubusercontent.com/81707462/156243280-e1857c50-a52f-4f21-91ed-2bc01807f551.png)
 
-# AdvancedReality
-Virtual reality project with nodejs and unity.
-
-![image](https://user-images.githubusercontent.com/81707462/141654892-327c44ef-7191-4d8a-b430-6216b25f9c03.png)
-
 ## Description:
 
-In the future I have to make a virtual reality tour about Galdar's technologyc park, so I made this as a practise. This is for
-the company ITC(Instituto tecnológico de canarias), and the interesting part its adding to the apps they make a crud with sql.
+After learning unity we have to learn how to use 3dvista and explore if its possible to connect it with nodejs mysql. 
+This is for the company ITC(Instituto tecnológico de canarias), the challenge its to make it in a really short time
+because the program has a hard license if you don't pay it. (30 days free per computer)
 
 So the app will be a webpage which lets you watch some photos and 360 spaces of Lanzarote, with users that can register, login, make
-comments, and send messages to the staff. With other pleasant extras like the dark mode and user configuration. I have no idea about
-unity at the start of this project but the idea is learning to be ready for the next one.
+comments, send messages to the staff and register the views. Not much more because we have to learn how to do this with 3dVista there 
+isn't any tutorial for this kind of things.
 
 ## Database models:
 
 The first table is used for the login and register, of the users, also for the admins with the attribute "isAdmin", because the admin
 and the users can do things than the guests that doesn't log in. The user writes texts and reviews, so they are related, in the texts
 we save the user email apart from the id to know where to answer if needed, and in the reviews we save the username to show it in the
-reviews view, so other users can see it. Finally everyone can watch the images, they have an attribute called place to represent in which
-360 image they are allowed to be seen.
+reviews view, so other users can see it. Finally everyone make views, while entering each page.
 
 I will make it with XAMPP MySql.
 
 ### E/R Model:
+![image](https://user-images.githubusercontent.com/81707462/156243975-76131c97-082c-4cc6-80d6-e9512afe11fe.png)
 
-![image](https://user-images.githubusercontent.com/81707462/145824780-522d8d45-c965-4ec5-9db3-066aa0b63d78.png)
 
 
 ## User requirements:
 
-R1. Platform
+R1. Plataforma
+	R1.1. La aplicación va a ser principalmente para web.
+R2. Va a tener cuatro funciones esenciales que va a poder realizar el usuario.
+R3. Se puede acceder a la aplicación de tres formas: sin registrarse, registrándose como usuario y acceso para administradores.
+R4. El registro le permitirá al usuario acceder a otras opciones.
+R5. Ser administrador te otorga permisos que no puede realizar un usuario habitualmente.
+R6. La aplicación posee ciertas acciones que va a poder realizar el usuario o que la propia aplicación integra al tener contacto con un usuario.
+R6.1 . Un contador de visitas en una esquina del menú que permitirá ver 	cuántas visitas se ha hecho a dicha aplicación.
+R6.2. Un apartado en el cual el usuario podrá contactar con el servicio de 	soporte escribiendo un mensaje.
+R.6.3. Un apartado de reseñas en el que el usuario escribirá una reseña acerca 	de un paseo virtual.
+R.6.4. Un apartado en la aplicación donde podrá registrarse un nuevo usuario 	o acceder si ya dispone de un registro previo.
 
-    R1.1. The app will be a web page
-  
-R2. Is going to be mostly what they do normally, but adding sql management
 
-R3. The users don't need to log in or register to access the app, but they will have less options
-
-R4. The app has a main menu, from there you can access to some options and one to go to the virtual reality
-
-    R4.1. Everyone can toggle the dark mode
-    R4.1.1. Only the admins can access the full crud
-    R4.1.2. If a user logs in, the dak mode value will be loaded, and it can be saved for future uses
-    R4.1.3. The users can change their own email and password, only knowing the old one
-    R4.1.4. The users can also erase their own account if they need it
-    R4.1.5. A screen will pop up to ask again if they are sure about erasing it
-    R4.2. The users can write and send a message to the staff if they are logged in
-  
-R5. The app has a virtual reality, in which the users can view all what the app mainly supplies
-
-    R5.1. Still everyone can toggle the dark mode
-    R5.1.1. Everyone can watch the images and reviews
-    R5.1.2. But only the users can write reviews
-    R5.1.3. There will be some hot spots which the users can click and read some information
-  
 ## Cases of use:
 
 Like I said before, guests can watch reviews and images, but you need to be a logged in user to write reviews and messages. Only admins
