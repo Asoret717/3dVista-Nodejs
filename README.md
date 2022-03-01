@@ -72,72 +72,62 @@ You will need to install node js and other modules in order to make it work, I w
 #### Prototype:
 ![image](https://user-images.githubusercontent.com/81707462/156245499-f04768c5-a764-4df6-8a8a-4e3c1a92fdc3.png)
 
-
-
 #### Final Screenshots:
-
-![mockup 2](https://user-images.githubusercontent.com/81707462/146038344-5bec549c-89e3-4a3d-b44f-d293e8c26faf.png)
-
-#### Prototype vs Final Screenshots:
-
-![prototipo 2](https://user-images.githubusercontent.com/81707462/145854130-f6971f6d-e28e-4879-84e0-f8e428d82a83.png)
-![prototipo](https://user-images.githubusercontent.com/81707462/145854321-72a765b7-d08f-4695-b35a-b73e09b540f4.png)
+![final](https://user-images.githubusercontent.com/81707462/156246521-844a1202-511b-4601-9919-a7f0fdb4241c.png)
 
 ### Usability:
 
 After making the app now I will show some of the usability I added.
 
-1-The app is so colorful, with the 3 colors that I repeat in the diferent pages of the project (yellow blue and orange) as
+1-The app is so colorful, with the 3 colors that I repeat in the diferent pages of the project (yellow cyan and gray) as
 you can see:
 
-![image](https://user-images.githubusercontent.com/81707462/146040605-7bb2b6b0-9794-402f-b9be-cc5c6026c1e5.png)
+![image](https://user-images.githubusercontent.com/81707462/156246832-3c46d907-69b1-483d-9ec3-818a849551b1.png)
 
 2-The options are intuitive, you can see the buttons clearly without overwhelming the most basic user, as you can see here, in the view with the most
 available options, its easy to guess what you could find there.
+![image](https://user-images.githubusercontent.com/81707462/156247136-db565b16-254b-42b0-a79b-2a2267ff7fe1.png)
 
-![image](https://user-images.githubusercontent.com/81707462/146041341-91c27d95-9aea-416a-825e-65816342b3d3.png)
 
 3-The guests are advised to make an account if they want to use the whole usage of the app, they are informed about it.
 
-![image](https://user-images.githubusercontent.com/81707462/146042728-05d8cb82-9b87-4c66-a696-31325f9e4b9f.png)
+![image](https://user-images.githubusercontent.com/81707462/156247209-9438aad4-e40e-4328-9ee9-2f04f800f2cb.png)
+
 
 4-When the user starts to register, they will receive advices of what they are doing wrong.
 
-![image](https://user-images.githubusercontent.com/81707462/146048091-a37c777e-735c-47a7-8718-3ea82ec217f2.png)
+![image](https://user-images.githubusercontent.com/81707462/156247312-0d5e0686-9598-4c8e-badc-a8ad158bbf53.png)
 
 5-The app shows that the user is logged in, by changing the log in button, and showing the username of the user connected.
 
-![image](https://user-images.githubusercontent.com/81707462/146048601-535c6f11-3aa6-4888-a4a5-e6b309ef7efa.png)
+![image](https://user-images.githubusercontent.com/81707462/156247687-04850b3e-9e93-424e-ae4e-54c20f6f433f.png)
 
-6-Other time when he tries the log in again, he will be informed of the mistakes, included if the user and password don't match.
+6-Other time when he tries the log in again, he will be informed of the mistakes.
 
-![image](https://user-images.githubusercontent.com/81707462/146052826-6a5ff422-2dfa-4cef-82a4-bef86bd2b6f9.png)
+![image](https://user-images.githubusercontent.com/81707462/156248259-d0cfd912-b4e0-463a-8a5d-2d44ecd37baf.png)
 
-7-While logged in, the app gives some configuration to the user, by letting him change the email and password.
+7-While logged in, the app gives some options to the user, more if he is admin (reports and sql crud).
 
-![image](https://user-images.githubusercontent.com/81707462/146050095-dbc3b9c2-e283-4cf7-99fa-c934212917c1.png)
+![image](https://user-images.githubusercontent.com/81707462/156248559-7128f53d-1d73-492f-b73e-5c2bf7da518f.png)
 
-8-Also deleting his account with a second chance to cancel it. Also for the admins when deleting data in the tables.
+8-Here we can see one of the reports which the admins can make to register the data.
 
-![image](https://user-images.githubusercontent.com/81707462/146050239-670ac7de-275b-4a6d-b536-9eb92b663878.png)
+![image](https://user-images.githubusercontent.com/81707462/156248850-f30f9908-8642-4626-8060-8d2696bc340f.png)
 
-9-Guests can toggle the darkmode, but only users can save the prefered option, it loads automatically when logging in. This
-changes are visible in all the pages.
+9-Guests and everyone can open the help interface to learn how to use the app.
 
-![image](https://user-images.githubusercontent.com/81707462/146051202-ec2a1a06-b574-4a5c-b076-28945ad5ffe1.png)
+![image](https://user-images.githubusercontent.com/81707462/156249367-3ae8311a-f21f-41ae-bee4-f2db251ac2d3.png)
 
-10-The users can send a message to staff, with some advices to notice the errors, and when it's successfully sent.
+10-The users can send a message to staff, with some advices to notice the errors.
 
-![image](https://user-images.githubusercontent.com/81707462/146051705-349cfc2a-ed43-4f49-aeb2-2eacedaacd50.png)
+![image](https://user-images.githubusercontent.com/81707462/156249476-882a8129-46f8-4fcb-bc5c-ff3c47deab16.png)
 
-11-The virtual reality has a comfortable menu, you can open and close it with just one key. Which is shown to the users, also
+11-The virtual reality has a comfortable menu, you can open and close it with just one button. Which is shown to the users, also
 the hotspots and arrows to travel to other places have the right size and colors to be seen.
 
-![image](https://user-images.githubusercontent.com/81707462/146052460-d3ea2631-837d-444b-9471-13d0ec504c72.png)
-![image](https://user-images.githubusercontent.com/81707462/146052053-9741b0fe-08c7-4b13-a827-3fb08db99d5a.png)
-
-
-
+![image](https://user-images.githubusercontent.com/81707462/156249714-f5e21f45-58ef-42dd-a8b0-6cc423427ee6.png)
+![image](https://user-images.githubusercontent.com/81707462/156249758-df66a7ef-f8f4-4853-a3e3-7c99da58a0ff.png)
+![image](https://user-images.githubusercontent.com/81707462/156249853-3a898091-d91b-4678-81f6-f8fabad9e5cc.png)
 
 ## Handbook
 
@@ -148,12 +138,13 @@ the hotspots and arrows to travel to other places have the right size and colors
 After downloading the git repository, import the sql file to your sql manager. I use XAMPP to use the database.
 (Remember, some programs need you to create a database with the same name it is on the file, in this case..)
 
-    db_galdar_dev
+    db_galdar_3d
 XAMPP link: https://www.apachefriends.org/es/download.html
     
-![image](https://user-images.githubusercontent.com/81707462/146055064-ead5009b-997e-4e6e-b1ed-3c12d3f808e2.png)
+![image](https://user-images.githubusercontent.com/81707462/156250096-bf6d2636-d3f0-4cd8-8a03-10a3c964b1ab.png)
 
-![image](https://user-images.githubusercontent.com/81707462/146054941-02dc53d1-50ad-4f93-8800-8a1627d3e409.png)
+![image](https://user-images.githubusercontent.com/81707462/156250153-dd0af5b9-11a8-418e-a605-d38f5709e43d.png)
+
 
 #### Nodejs Backend
 
@@ -165,6 +156,10 @@ visual studio code link: https://code.visualstudio.com/download  I use the versi
 node js link: https://nodejs.org/es/download/  I use the version 6.14.15
 
     npm install
+    npm install cors
+    npm install jsreport
+    npm install mysql
+    npm install express
 
 And when you have everything ready run it.
 
@@ -176,34 +171,24 @@ If for some reason you don't have the sql server at the default port 3306, you c
 
 If all went right you should see something like this in the terminal.
 
-![image](https://user-images.githubusercontent.com/81707462/146056321-1c8c212b-e2b8-42cf-b20d-200d3a7c846b.png)
+![image](https://user-images.githubusercontent.com/81707462/156250351-1c80df9d-e34e-4c0f-9e9c-f28370f66bd3.png)
 
 And this page for example should load (don't try with users, it's protected)
 
 ![image](https://user-images.githubusercontent.com/81707462/146056451-06b8d96d-a137-407a-b44d-bc8f536cc5c1.png)
 
-#### Unity frontend
+#### 3dVista frontend
 
-In this point you have 2 choices, using the webpage already builded at this itch.io link. Or open the frontend folder in unity to try it with the editor.
-With the first way you can easily see the final product, and with unity search for all the details. (webgl has a lots of bugs, some of
-them like letters not appearing, I will try to fix it as far as I can)
+If all went right entering this page should load the 3dVista frontend
 
-My app at itch.io link: https://asoret.itch.io/advanced-reality
+http://localhost:4000/web3dVista/
 
-![image](https://user-images.githubusercontent.com/81707462/146057242-d1afebe3-58ef-4af4-ac8a-364996646118.png)
+![image](https://user-images.githubusercontent.com/81707462/156250572-22cad448-924c-44a4-84ea-9cd2ac223133.png)
 
 
-With unity hub just click on the add option and select the folder, that's it
+3dVista link: https://www.3dvista.com/es/productos/virtual-tour-pro/
 
-Unity link: https://unity.com/es/download   I use the version 2020.3.24f1 (with the hub you can install most versions)
-
-![image](https://user-images.githubusercontent.com/81707462/146057173-34a65a87-d6c5-4a29-b02d-bb1d6510fd44.png)
-
-To try it (with the less ammount of bugs) press the play button in the main page scene.
-(You could build the project but it would be the same as using the link before, or build it like an exe app, would be
-the same as trying it in the unity editor)
-
-![image](https://user-images.githubusercontent.com/81707462/146057397-c9c2c210-8a20-4b84-8c08-4164b38592ad.png)
+![image](https://user-images.githubusercontent.com/81707462/156250675-7f52e111-968e-4e54-860b-c28643d3d7a7.png)
 
 
 ### User guide
@@ -217,31 +202,25 @@ In the main menu you can do multiple things:
 ##### Log in / Register
 
 Clicking the button log in, you can access to the log in and register form. This let you access to more options.
-(The app helps you in filling the forms correctly, I could name all these messages but I already did it in the usability, check it there)
+(The app helps you a little in filling the forms correctly)
 
-![image](https://user-images.githubusercontent.com/81707462/146058412-1bbd8a23-ce38-40eb-a213-811f58d21b97.png)
+![image](https://user-images.githubusercontent.com/81707462/156251229-80d095e1-2d00-47ae-b1ec-4eb3f19e09f8.png)
 
 After logging in or resgistering, you can press the new button in the same place to log out.
 
-![image](https://user-images.githubusercontent.com/81707462/146058658-8c8648c8-eaa0-4cb4-9a1f-be235fd69e13.png)
+![image](https://user-images.githubusercontent.com/81707462/156251320-5da16571-2ef8-4a4a-a1e2-57764d79b428.png)
 
-##### Info
+##### Views
 
-You can see some info of the app, is drop and draggable just to try it.
+There is a counter which shows how many times the page has been used.
 
-![image](https://user-images.githubusercontent.com/81707462/146059003-6fbff959-4d6f-498d-ac9d-b2e700e8e166.png)
+![image](https://user-images.githubusercontent.com/81707462/156251595-f9aa7901-4883-4d45-a8e4-af5053e8d792.png)
 
 ##### Contact
 
 The form to send a message to the staff, only ussable if you are logged in.
 
-![image](https://user-images.githubusercontent.com/81707462/146059248-f3f41841-3b4f-4125-b612-7e5c6fd8d11e.png)
-
-##### Admin Settings
-
-This button only shows up if the user is a admin. You can use the full crud of all the tables.
-
-![image](https://user-images.githubusercontent.com/81707462/146059955-e17017fe-5062-460a-97f9-2623d8911988.png)
+![image](https://user-images.githubusercontent.com/81707462/156251402-e9bb93b3-d10b-47db-922a-f3d360d49ebb.png)
 
 #### Virtual reality
 
@@ -251,47 +230,42 @@ The main purpose of the app, also has multiple options:
 
 The page where you land at the start, you can choose which place you want to see, this affects the other options.
 
-![image](https://user-images.githubusercontent.com/81707462/146060748-cff35386-6678-4b7d-a124-bce2f8b10668.png)
-
-##### Images
-
-You can check some images of the place you chose on the map, it will be playa blanca by default.
-
-![image](https://user-images.githubusercontent.com/81707462/146060956-62d20cb9-6fb4-4980-b6b0-13b88727593b.png)
+![image](https://user-images.githubusercontent.com/81707462/156251500-dad989e0-4184-4613-8d5a-5284b9d10465.png)
 
 ##### Comments
 
 Here you can watch the comments of other users or make your own if you are logged in.
 
-![image](https://user-images.githubusercontent.com/81707462/146061072-6369f803-303e-4491-bafe-aa132bbe4c1b.png)
+![image](https://user-images.githubusercontent.com/81707462/156251708-5f597774-2c4b-4a23-82a1-acbf90d872c3.png)
 
 ##### 360 place
 
-And finally the most important place, and that I need to explain, you can move the camera holding the left click. But what
-you maybe don't expect it's that you can zoom by holding the right click and moving it up and down. To reset the zoom press the
-wheel button of the mouse. With Tab or clicking the small icon in the corner you can open the menu. The arrows and hotspots are self-exaplanatory.
+The controls are intuitive, and the arrows and hotspots are self-exaplanatory just click.
 
-![image](https://user-images.githubusercontent.com/81707462/146061421-085711f7-7e45-4fcf-ad9e-efda038d751e.png)
-![image](https://user-images.githubusercontent.com/81707462/146061445-b68b7ebd-a97e-4dc4-be77-97233f05d893.png)
+![image](https://user-images.githubusercontent.com/81707462/156249758-df66a7ef-f8f4-4853-a3e3-7c99da58a0ff.png)
+![image](https://user-images.githubusercontent.com/81707462/156249853-3a898091-d91b-4678-81f6-f8fabad9e5cc.png)
+
 
 
 ## Technology stack
 
-In this project I use unity version 2020.3.24f1, nodejs version 6.14.15 and XAMPP v3.3.0.
+In this project I use 3dVista, nodejs and XAMPP. (And some unity but it's just a placeholder trial)
 
 I chose nodejs to have this in common with most classmates, in case we needed help. XAMPP because im so used to it but I think
-I will learn more about workbench as it seems more comfortable. Finally unity because it is great for 3d stuff.
+I will learn more about workbench as it seems more comfortable. Finally 3dVista because it makes virtual tours much easier to make.
 
-![image](https://user-images.githubusercontent.com/81707462/146062154-a3dbc028-1a53-4362-b24d-78ca47059117.png)
+![image](https://user-images.githubusercontent.com/81707462/156252031-126d55fb-488a-4216-9d90-0436e5ac287a.png)
+![image](https://user-images.githubusercontent.com/81707462/156251998-9bb5779a-2e08-493e-b165-a56729535737.png)
+
 
 ## Technology comparison
 
-At the start the company told us to use 3d vista, it's easier to make tours with it even without knowing how to script, but that wouldn't leave
-us the chance to make lots of things with code and sql. So I decided to take unity at the end, I love how much you can do there in a easy way more
-or less.
+The company told us to use 3dVista instead of unity, it made the part of the tour so easier that I think that most people
+without experience could have made, but the important part of joining sql and code was so limited, you can only use html javascript
+in windows on top of the program, that can't affect 3dvista actions, and had to use local storage to try things, but I don't think it's
+that save or proffesional to manager accounts with it, I will have to find a different way in the future.
 
-![image](https://user-images.githubusercontent.com/81707462/146062094-ba11c223-5e08-467f-a6da-695a4a264319.png)
-
+![image](https://user-images.githubusercontent.com/81707462/156252246-0d7d883e-0a79-4fe3-91b7-9894ea2d8e99.png)
 
 ## Repositories
 
