@@ -30,16 +30,20 @@ I will make it with XAMPP MySql.
 ## User requirements:
 
 R1. Plataforma
-	R1.1. La aplicación va a ser principalmente para web.
+     
+     R1.1. La aplicación va a ser principalmente para web.
+
 R2. Va a tener cuatro funciones esenciales que va a poder realizar el usuario.
 R3. Se puede acceder a la aplicación de tres formas: sin registrarse, registrándose como usuario y acceso para administradores.
 R4. El registro le permitirá al usuario acceder a otras opciones.
 R5. Ser administrador te otorga permisos que no puede realizar un usuario habitualmente.
 R6. La aplicación posee ciertas acciones que va a poder realizar el usuario o que la propia aplicación integra al tener contacto con un usuario.
-R6.1 . Un contador de visitas en una esquina del menú que permitirá ver 	cuántas visitas se ha hecho a dicha aplicación.
-R6.2. Un apartado en el cual el usuario podrá contactar con el servicio de 	soporte escribiendo un mensaje.
-R.6.3. Un apartado de reseñas en el que el usuario escribirá una reseña acerca 	de un paseo virtual.
-R.6.4. Un apartado en la aplicación donde podrá registrarse un nuevo usuario 	o acceder si ya dispone de un registro previo.
+
+    R6.1 . Un contador de visitas en una esquina del menú que permitirá ver 	cuántas visitas se ha hecho a dicha aplicación.
+    R6.2. Un apartado en el cual el usuario podrá contactar con el servicio de 	soporte escribiendo un mensaje.
+    R.6.3. Un apartado de reseñas en el que el usuario escribirá una reseña acerca 	de un paseo virtual.
+    R.6.4. Un apartado en la aplicación donde podrá registrarse un nuevo usuario 	o acceder si ya dispone de un registro previo.
+
 
 
 ## Cases of use:
