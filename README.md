@@ -269,48 +269,33 @@ that save or proffesional to manager accounts with it, I will have to find a dif
 
 ## Repositories
 
-I'm still new with github but this time I managed to use two branches, one for the develop of the app making tests and fixing mistakes, and the master one
-where I have the read and I merget with develop at the end. I know I can improve more with this but I'm satisfied with all the commits I did.
+I think github is more confortable now, even with 4 branches now.
 
-![image](https://user-images.githubusercontent.com/81707462/146062444-1172a8a8-34d0-479b-b0c2-2d3c2670b06f.png)
-![image](https://user-images.githubusercontent.com/81707462/146062413-eec9ea69-4dd9-4078-8a20-33a5e242924a.png)
-
+![image](https://user-images.githubusercontent.com/81707462/156252675-ce06f8a5-e765-4581-9172-7229c860b0ca.png)
 
 ## Planification
 
-I didn't know anything about unity, but knew how to make the backend with nodejs. So the first day I finished the backend (but I made lot of changes to the table).
-What the company wanted for the project it was a mistery, so I was a little lost, despite of that I'm grateful that I decided to start making a 2d crud to have one of
-the most important things of the whole project (kinda the 60%). After weeks I finished the crud and the company gave us the idea to make a tour with a map, so it was time
-to progress.
+We had some personal problems at the start, and learning how to use sql with 3dVista without any tutorial or help, just some from the company itself. So
+we started so late the project, so to be honest I couldn't finish it in the perfect way I wanted it, it has some appearance mistakes but its more than enough.
 
-I finished the main page and was going to start the map to finally try the virtual reality but not really. The teacher remembered me that the app should be a webpage, and
-when I tried it all the crud operations broke.. had to take some days to replace half the code but I could at the end, because unity webgl doesn't support http client, you
-have to use unity web request. With some tutorials I learned a lot at the end and could finish the rest in a few days.
-
-But the problem that got me the most lost time is rendering/building the project in webgl. Lots of things break or bug out, also my mistake because teamviewer lagged some things
-making me think something was wrong with the app. I found a page that executes the build better itch.io, sadly there could be more errors like missing letters.
-
-I planned to try the vr glasses in the app and addapting it, maybe try to let the user upload photos. But I ran out of time with the video in the main page. (not loading, lagging etc)
+We had to plan what to make each day to finish it at time, and the trial of 30 days already expired in our main computers so I could only work at classes, until the
+lasts days where I discovered that I could use a virtual machine to use 3dVista, it goes so slow and laggy, it furstrated me but the app its finished. Hope we can improve
+it in the future.
 
 ## Conclusions, opinions and reflexions
 
-Finally i'm proud of the final product, I see how low expectations I had in the prototype (which is normal not knowing how to use unity) but I made a lot without help.
-I admmit that some scripts like loginUsers has way to many text, I wanted to reduce it but it would take much time that I don't have right know, i'm sure that the next
-one I will be more clean. And some graphics of the app look blur or not hd, fonts too bold, I don't like how webgl builds up, hope I make that better too.
-
-Even that it was frustrating when things didn't work I really enjoyed learning unity, maybe we use it again in the real project and I will be ready. Teamwork is going to 
-be the real challenge probably.
+They were right that we needed to learn how to use 3dVista and not just become better at unity, I had to use a lot my mind to figure out how to use sql in javascript
+and how to make the interfaces with just some webpage squares. So I think we really learned a lot and we are so prepared for the next challenges, hope it goes even better
+at the third time. Now we understand why the company loves 3dVista it makes most of the things for you from the start, the 360 images, controls, hotspots etc everything except
+code.
 
 ## Links and references
 
-Most of the backend of the app, with the login (The real savior of time, even that I don't use ionic here):
+Most of the backend of the app, with the login (even that it's with ionic):
 
 https://github.com/tcrurav/Ionic5NodeAuthBasic
 
-Crud with player prefs (The first tutorial showed me how to make a table with crud forms, so useful): 
+Crud with javascript (Probably the most important tutorial, because the rest was basic things for javascript): 
 
-https://www.youtube.com/watch?v=zfoAKTVvfM8
+https://youmightnotneedjquery.com
 
-Tour with unity (The best videos to make a unity tour really easily, just takes some minutes): 
-
-https://www.youtube.com/watch?v=hgRb7apZrCw
