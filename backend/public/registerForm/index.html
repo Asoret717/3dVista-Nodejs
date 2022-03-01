@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="http://localhost:4000/loginForm/style.css">
+</head>
+
+<body>
+  <div style="left:100px;">
+    <h3 style="text-align: center;">Register</h3>
+
+    <p style="display:inline-block;">Username: &nbsp;</p><input id="username" class="css-input" spellcheck="false"></br> &nbsp; &nbsp; &nbsp;
+    <p style="display:inline-block;">Email: &nbsp; </p><input type="email" id="email" class="css-input" spellcheck="false"></br>
+    <p style="display:inline-block;">Password: &nbsp;</p><input type="password" id="password" class="css-input" spellcheck="false"></br></br>
+    <div style="text-align: center;">
+      <button class="testbutton2" type="button" onclick="register()">Register</button>
+      <button class="testbutton" type="button" onclick="goLogin()">Log in</button>
+      <p id="demo" style="background-color: rgb(61, 0, 0); color: white;"></p>
+    </div>
+  </div>
+
+
+  <script>
+    function register() {
+      let username = document.getElementById("username").value;
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+
+      if (username != "" && email != "" && password != "") {
+        var data = { "username": username, "password": password, "mail": email };
+        var dato = JSON.stringify(data);
+        var request = new XMLHttpRequest();
+        request.open("POST", "http://localhost:4000/api/users", true);
+        request.setRequestHeader('Content-Type', 'application/json');
+
+        request.onload = function (req, response) {
+          var resp = this.response;
+
+          if (resp.startsWith("{\"user\":{\"id\"")) {
+            localStorage.setItem("lastname", resp);
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+            window.location.href = "http://localhost:4000/logout/";
+            text= resp;
+          }else{
+            text = "Database refused";
+          }
+        };
+        request.send(dato);
+      }else{
+        text = "You didn't write";
+      }
+      document.getElementById("demo").innerHTML = text;
+    }
+    function goLogin() {
+      window.location.href = "http://localhost:4000/loginForm/";
+    }
+  </script>
+
+</body>
+
+</html>

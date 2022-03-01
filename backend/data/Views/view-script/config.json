@@ -1,0 +1,14 @@
+{
+    "name": "view-script",
+    "creationDate": {
+        "$$date": 1645807374772
+    },
+    "modificationDate": {
+        "$$date": 1645813943933
+    },
+    "shortid": "TSCs-z5",
+    "_id": "1QJDrCRPNm9qL6wE",
+    "$entitySet": "scripts",
+    "scope": "template",
+    "isGlobal": false
+}

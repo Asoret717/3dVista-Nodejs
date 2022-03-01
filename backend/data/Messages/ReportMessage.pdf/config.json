@@ -1,0 +1,26 @@
+{
+    "name": "ReportMessage.pdf",
+    "recipe": "chrome-pdf",
+    "engine": "handlebars",
+    "chrome": {
+        "printBackground": true,
+        "displayHeaderFooter": true
+    },
+    "creationDate": {
+        "$$date": 1645814815078
+    },
+    "modificationDate": {
+        "$$date": 1645815017029
+    },
+    "scripts": [
+        {
+            "shortid": "Gvt-1pR"
+        }
+    ],
+    "htmlToXlsx": {
+        "htmlEngine": "chrome"
+    },
+    "shortid": "MessagesReport.pdf",
+    "_id": "Oc5yIjjdWtJRbUzO",
+    "$entitySet": "templates"
+}

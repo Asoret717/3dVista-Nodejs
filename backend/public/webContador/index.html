@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body onload="myFunction()">
+  <div style="display:inline-block;vertical-align:left;">
+  <img src="http://localhost:4000/img/view.png" style="height:40px; width:40px;">
+  </div>
+  <div style="display:inline-block;">
+  <h1><span id="myText" style="font-size: 22px;"></span></h1>
+  </div>
+
+  <script>
+    function myFunction() {
+      var request = new XMLHttpRequest();
+      request.open('GET', 'http://localhost:4000/api/views' + '/1', true);
+
+      request.onload = function () {
+        var resp = this.response;
+        var view = JSON.parse(resp);
+        document.getElementById("myText").innerHTML = view.views;
+      };
+      request.send();
+    }
+  </script>
+</body>
+
+</html>

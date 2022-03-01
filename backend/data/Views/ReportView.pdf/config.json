@@ -1,0 +1,26 @@
+{
+    "name": "ReportView.pdf",
+    "recipe": "chrome-pdf",
+    "engine": "handlebars",
+    "chrome": {
+        "printBackground": true,
+        "displayHeaderFooter": true
+    },
+    "creationDate": {
+        "$$date": 1645807374766
+    },
+    "modificationDate": {
+        "$$date": 1645814657042
+    },
+    "scripts": [
+        {
+            "shortid": "TSCs-z5"
+        }
+    ],
+    "htmlToXlsx": {
+        "htmlEngine": "chrome"
+    },
+    "shortid": "ViewsReport.pdf",
+    "_id": "d2MRI4fV71f8H6MU",
+    "$entitySet": "templates"
+}
