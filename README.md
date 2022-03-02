@@ -215,19 +215,19 @@ Clicking the button log in, you can access to the log in and register form. This
 
 After logging in or resgistering, you can press the new button in the same place to log out.
 
-![image](https://user-images.githubusercontent.com/81707462/156251320-5da16571-2ef8-4a4a-a1e2-57764d79b428.png)
+![image](https://user-images.githubusercontent.com/81707462/156437852-164ed123-a03c-4167-a106-4551b1b65915.png)
 
 ##### Views
 
 There is a counter which shows how many times the page has been used.
 
-![image](https://user-images.githubusercontent.com/81707462/156251595-f9aa7901-4883-4d45-a8e4-af5053e8d792.png)
+![image](https://user-images.githubusercontent.com/81707462/156437895-7f9af90c-d135-4c93-9a44-33da06d21ecd.png)
 
 ##### Contact
 
 The form to send a message to the staff, only ussable if you are logged in.
 
-![image](https://user-images.githubusercontent.com/81707462/156251402-e9bb93b3-d10b-47db-922a-f3d360d49ebb.png)
+![image](https://user-images.githubusercontent.com/81707462/156438008-be555f5c-1c34-472b-8be7-36a103c51d05.png)
 
 #### Virtual reality
 
@@ -243,7 +243,7 @@ The page where you land at the start, you can choose which place you want to see
 
 Here you can watch the comments of other users or make your own if you are logged in.
 
-![image](https://user-images.githubusercontent.com/81707462/156430804-6d3faea1-d9d1-4210-8abb-361a74c12e94.png)
+![image](https://user-images.githubusercontent.com/81707462/156438159-55627343-907c-49ed-b830-d39834c4047b.png)
 
 ##### 360 place
 
