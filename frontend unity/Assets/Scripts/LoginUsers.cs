@@ -80,9 +80,10 @@ public class LoginUsers : MonoBehaviour
     }
     void Start()
     {
-        //txt_username.GetComponent<Text>().text = GetData("lastname");
-        //closeWindows();
-        contentUser = LoginUsers2.getUser();
+        username = "";
+        txt_username.GetComponent<Text>().text = username;
+        contentUser = null;
+        setUser(contentUser);
         if (GetData("lastname").StartsWith("{\"user\":{\"id\""))
         {
             contentUser = JsonConvert.DeserializeObject<OverUserModel>(GetData("lastname"));
@@ -91,10 +92,8 @@ public class LoginUsers : MonoBehaviour
         {
             access_token = contentUser.access_token;
             Dark = contentUser.user.darkmode;
-        }
-        else
-        {
-            contentUser = Crud.getUser();
+        }else{
+            form_login.SetActive(true);
             access_token = "";
         }
         isLoggedin();
@@ -354,7 +353,6 @@ public class LoginUsers : MonoBehaviour
         }else{
             form_login.SetActive(true);
         }
-
     }
 
     public IEnumerator checkAdmin()
@@ -377,9 +375,10 @@ public class LoginUsers : MonoBehaviour
         }
         if (isAdmin)
         {
+            setUsername(contentUser.user.username);
             form_login.SetActive(false);
             btn_admin.SetActive(true);
-            txt_username.GetComponent<Text>().text = username;
+            txt_username.GetComponent<Text>().text = contentUser.user.username;
             txt_mail.GetComponent<Text>().text = contentUser.user.mail;
             email_window.transform.GetChild(1).GetComponent<InputField>().text = txt_mail.GetComponent<Text>().text;
             Dark = contentUser.user.darkmode;
@@ -388,7 +387,6 @@ public class LoginUsers : MonoBehaviour
         }
         else
         {
-            form_login.SetActive(true);
             logout();
             login_error.transform.GetChild(0).GetComponent<Image>().transform.GetChild(0).GetComponent<Text>().text = "You aren't admin";
         }
@@ -402,10 +400,8 @@ public class LoginUsers : MonoBehaviour
         setUser(contentUser);
         LoginUsers2.setUser(contentUser);
         access_token = "";
-        //closeWindows();
         btn_logout.SetActive(false);
         btn_admin.SetActive(false);
-        //btn_login.SetActive(true);
         SetData("lastname", "");
     }
     public void register()
@@ -472,7 +468,6 @@ public class LoginUsers : MonoBehaviour
             {
                 register_error.SetActive(true);
                 register_error.transform.GetChild(0).GetComponent<Image>().transform.GetChild(0).GetComponent<Text>().text = "Something went wrong";
-                //Debug.Log("Wrong username or password");
             }
         }
     }

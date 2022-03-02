@@ -161,7 +161,6 @@ public class CrudUsers : MonoBehaviour
         userUpdate.isAdmin = contentUser.user.isAdmin;
         userUpdate.darkmode = contentUser.user.darkmode;
         var json = JsonConvert.SerializeObject(userUpdate);
-        //var updateData = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
         var byteArray = System.Text.Encoding.UTF8.GetBytes(json);
         UnityWebRequest request = UnityWebRequest.Put("http://localhost:4000/api/users/" + userUpdate.id, byteArray);
         request.SetRequestHeader("Content-Type", "application/json");
@@ -192,19 +191,6 @@ public class CrudUsers : MonoBehaviour
         request.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         yield return request.SendWebRequest();
         Debug.Log(request.downloadHandler.text);
-
-        /*var byteArray = System.Text.Encoding.UTF8.GetBytes($"{user.username}:{user.password}");
-        string encodedText = Convert.ToBase64String(byteArray);
-        var json = JsonConvert.SerializeObject(user);
-        var data = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-        using var client = new HttpClient();
-        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", encodedText);
-        client.DefaultRequestHeaders
-        .Accept
-        .Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
-        HttpResponseMessage response = await client.PostAsync("http://localhost:4000/api/users", data);
-        var responseString = await response.Content.ReadAsStringAsync();*/
-        //Debug.Log(responseString);
         form_create.transform.GetChild(1).GetComponent<InputField>().text = "";
         form_create.transform.GetChild(2).GetComponent<InputField>().text = "";
         form_create.transform.GetChild(3).GetComponent<InputField>().text = "";
@@ -227,10 +213,6 @@ public class CrudUsers : MonoBehaviour
         request.SetRequestHeader("Authorization", "Bearer " + sendToken.token);
         request.downloadHandler = new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
-        /*using var client = new HttpClient();
-        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sendToken.token);
-        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        HttpResponseMessage response = await client.DeleteAsync("http://localhost:4000/api/users/" + idDelete);*/
         read();
     }
 
@@ -257,17 +239,12 @@ public class CrudUsers : MonoBehaviour
         userUpdate.password = form_update.transform.GetChild(2).GetComponent<InputField>().text;
         userUpdate.mail = form_update.transform.GetChild(3).GetComponent<InputField>().text;
         var json = JsonConvert.SerializeObject(userUpdate);
-        //var updateData = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
         var byteArray = System.Text.Encoding.UTF8.GetBytes(json);
         UnityWebRequest request = UnityWebRequest.Put("http://localhost:4000/api/users/"+idUpdate,byteArray);
         request.SetRequestHeader("Content-Type", "application/json");
         request.SetRequestHeader("Authorization", "Bearer " + sendToken.token);
         request.downloadHandler = new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
-        /*using var client = new HttpClient();
-        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sendToken.token);
-        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        HttpResponseMessage response = await client.PutAsync("http://localhost:4000/api/users/" + idUpdate, updateData);*/
         read();
     }
 
