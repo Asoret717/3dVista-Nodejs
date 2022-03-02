@@ -244,7 +244,7 @@ The page where you land at the start, you can choose which place you want to see
 
 Here you can watch the comments of other users or make your own if you are logged in.
 
-![image](https://user-images.githubusercontent.com/81707462/156251708-5f597774-2c4b-4a23-82a1-acbf90d872c3.png)
+![image](https://user-images.githubusercontent.com/81707462/156430804-6d3faea1-d9d1-4210-8abb-361a74c12e94.png)
 
 ##### 360 place
 
