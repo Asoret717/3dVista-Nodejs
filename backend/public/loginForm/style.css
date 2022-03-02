@@ -19,7 +19,7 @@
 
   .testbutton {
     display: inline-block;
-    font-family: arial;
+    font-family:'Calibri';
     font-weight: bold;
     color: #ffffff !important;
     font-size: 16px;
@@ -48,7 +48,7 @@
 
   .testbutton2 {
     display: inline-block;
-    font-family: arial;
+    font-family:'Calibri';
     font-weight: bold;
     color: #ffffff !important;
     font-size: 16px;
@@ -76,7 +76,7 @@
   }
 
   .testbutton3 {
-    font-family: arial;
+    font-family:'Calibri';
     font-weight: bold;
     color: #ffffff !important;
     font-size: 16px;
@@ -102,62 +102,33 @@
     background: -moz-linear-gradient(top,  #cf4646,  #ee6363);
   }
 
-  .testbutton4 {
-    display: inline-block;
-    font-family: arial;
-    font-weight: bold;
-    color: #ffffff !important;
-    font-size: 12px;
-    text-shadow: 1px 1px 0px #000000;
-    box-shadow: 1px 1px 1px #000000;
-    padding: 5px 7px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    border: 2px solid #3866A3;
-    background: #63B8EE;
-    background: linear-gradient(top, #63B8EE, #468CCF);
-    background: -ms-linear-gradient(top, #63B8EE, #468CCF);
-    background: -webkit-gradient(linear, left top, left bottom, from(#63B8EE), to(#468CCF));
-    background: -moz-linear-gradient(top, #63B8EE, #468CCF);
-  }
-
-  .testbutton4:hover {
-    color: #14396A !important;
-    background: grad;
-    background: linear-gradient(top, #468CCF, #63B8EE);
-    background: -ms-linear-gradient(top, #468CCF, #63B8EE);
-    background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
-    background: -moz-linear-gradient(top, #468CCF, #63B8EE);
-  }
-
   .testbutton5 {
     display: inline-block;
-    font-family: arial;
     font-weight: bold;
+    font-family:'Calibri';
     color: #ffffff !important;
     font-size: 12px;
     text-shadow: 1px 1px 0px #000000;
     box-shadow: 1px 1px 1px #000000;
-    padding: 5px 7px;
+    padding: 7px 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    border: 2px solid #38a365;
-    background: #63ee86;
-    background: linear-gradient(top, #63ee6f, #46cf6f);
-    background: -ms-linear-gradient(top, #63ee63, #46cf58);
-    background: -webkit-gradient(linear, left top, left bottom, from(#68ee63), to(#7dcf46));
-    background: -moz-linear-gradient(top, #7aee63, #4bcf46);
+    border: 2px solid #a3a338;
+    background: #eeda63;
+    background: linear-gradient(top, #e7ee63, #c9cf46);
+    background: -ms-linear-gradient(top, #e7ee63, #c9cf46);
+    background: -webkit-gradient(linear, left top, left bottom, from(#e7ee63), to(#c9cf46));
+    background: -moz-linear-gradient(top, #e7ee63, #c9cf46);
   }
 
   .testbutton5:hover {
     color: #6a6014 !important;
     background: grad;
-    background: linear-gradient(top, #46cf46, #68ee63);
-    background: -ms-linear-gradient(top, #4bcf46, #63ee6f);
-    background: -webkit-gradient(linear, left top, left bottom, from(#4bcf46), to(#63ee6a));
-    background: -moz-linear-gradient(top, #4bcf46, #73ee63);
+    background: linear-gradient(top, #cfc846, #eee663);
+    background: -ms-linear-gradient(top, #cfc846, #eee663);
+    background: -webkit-gradient(linear, left top, left bottom, from(#cfc846), to(#eee663));
+    background: -moz-linear-gradient(top, #cfc846, #eee663);
   }
 
   .css-textbox {
@@ -171,4 +142,22 @@
 }
 .css-textbox:focus {
     outline:none;
+}
+
+
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
 }

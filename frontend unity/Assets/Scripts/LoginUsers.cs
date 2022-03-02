@@ -368,7 +368,7 @@ public class LoginUsers : MonoBehaviour
             Debug.Log(model.username + " " + contentUser.user.username + " " +
             model.id + " " + contentUser.user.id + " " + model.mail + " " + contentUser.user.mail + " " + model.isAdmin);
             if ((model.username.Equals(contentUser.user.username)) && (model.id == contentUser.user.id)
-            && (model.mail.Equals(contentUser.user.mail)))
+            && (model.mail.Equals(contentUser.user.mail) && model.isAdmin))
             {
                 isAdmin = true;
             }

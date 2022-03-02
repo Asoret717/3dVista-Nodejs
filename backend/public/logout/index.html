@@ -7,16 +7,21 @@
 
 <body>
   <div>
-    <h4 style="text-align: center;">You are logged in</h4>
-    <div style="text-align: center;">
+    <h4 style="text-align: center;font-family:'Calibri';">You are logged in</h4>
+    <div style="text-align: center;font-family:'Calibri';">
       <h2 id="demo" style="background-color: rgb(32, 32, 32); color: white;"></h2>
-
-      <button class="testbutton2" type="button" onclick="contact()">Contact</button></br></br>
-      <button class="testbutton3" type="button" onclick="logout()">Log out</button></br></br>
-      <button id="admin" class="testbutton4" type="button" style="display:none;margin: 0 auto;" onclick="unity()">Admin</button><br>
-      <button id="admin2" class="testbutton5" type="button" style="display:none;margin: 0 auto;" onclick="reportViews()">Views</button>
-      <button id="admin3" class="testbutton5" type="button" style="display:none;margin: 0 auto;" onclick="reportReviews()">Reviews</button>
-      <button id="admin4" class="testbutton5" type="button" style="display:none;margin: 0 auto;" onclick="reportMessages()">Messages</button>
+      <div class="btn-group">
+      <button class="testbutton2" type="button" onclick="contact()">Contact</button>
+      <button class="testbutton3" type="button" onclick="logout()">Log out</button>
+    </div><br>
+      <button id="admin" class="testbutton" type="button" style="display:none;margin: 0 auto;" onclick="unity()">Admin</button><br>
+      <h4 id="reports" style="text-align: center;font-family:'Calibri';display:none;margin: 0 auto;">Reports:</h4><br><br>
+      <div class="btn-group">
+        <button id="admin2" class="testbutton5" type="button" style="display:none;margin: 0 auto;" onclick="reportViews()">Views</button>
+        <button id="admin3" class="testbutton5" type="button" style="display:none;margin: 0 auto;" onclick="reportReviews()">Reviews</button>
+        <button id="admin4" class="testbutton5" type="button" style="display:none;margin: 0 auto;" onclick="reportMessages()">Messages</button>
+      </div>
+      
     </div>
   </div>
 
@@ -35,6 +40,8 @@
       var x = document.getElementById("admin3");
       x.style.display = "inline-block";
       var x = document.getElementById("admin4");
+      x.style.display = "inline-block";
+      var x = document.getElementById("reports");
       x.style.display = "inline-block";
     }
     
