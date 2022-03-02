@@ -99,24 +99,23 @@ available options, its easy to guess what you could find there.
 
 3-The guests are advised to make an account if they want to use the whole usage of the app, they are informed about it.
 
-![image](https://user-images.githubusercontent.com/81707462/156247209-9438aad4-e40e-4328-9ee9-2f04f800f2cb.png)
-
+![image](https://user-images.githubusercontent.com/81707462/156436357-65d71ea8-8635-4aeb-bdcf-41f9a18b4aec.png)
 
 4-When the user starts to register, they will receive advices of what they are doing wrong.
 
-![image](https://user-images.githubusercontent.com/81707462/156247312-0d5e0686-9598-4c8e-badc-a8ad158bbf53.png)
+![image](https://user-images.githubusercontent.com/81707462/156436675-8fa31330-885f-465d-8c99-ef6b66ac81da.png)
 
 5-The app shows that the user is logged in, by changing the log in button, and showing the username of the user connected.
 
-![image](https://user-images.githubusercontent.com/81707462/156247687-04850b3e-9e93-424e-ae4e-54c20f6f433f.png)
+![image](https://user-images.githubusercontent.com/81707462/156436791-c1d3242a-e89c-44ba-b58f-38cbbeb5cb0b.png)
 
 6-Other time when he tries the log in again, he will be informed of the mistakes.
 
-![image](https://user-images.githubusercontent.com/81707462/156248259-d0cfd912-b4e0-463a-8a5d-2d44ecd37baf.png)
+![image](https://user-images.githubusercontent.com/81707462/156437061-95acc08a-6ed0-4545-ae51-b2043677c3d8.png)
 
 7-While logged in, the app gives some options to the user, more if he is admin (reports and sql crud).
 
-![image](https://user-images.githubusercontent.com/81707462/156248559-7128f53d-1d73-492f-b73e-5c2bf7da518f.png)
+![image](https://user-images.githubusercontent.com/81707462/156437184-8e1f3d15-e910-4af4-aa9d-e6448f542576.png)
 
 8-Here we can see one of the reports which the admins can make to register the data.
 
@@ -124,11 +123,11 @@ available options, its easy to guess what you could find there.
 
 9-Guests and everyone can open the help interface to learn how to use the app.
 
-![image](https://user-images.githubusercontent.com/81707462/156249367-3ae8311a-f21f-41ae-bee4-f2db251ac2d3.png)
+![image](https://user-images.githubusercontent.com/81707462/156437293-7e5c39bc-84c4-4e96-a185-3281a4011ef8.png)
 
 10-The users can send a message to staff, with some advices to notice the errors.
 
-![image](https://user-images.githubusercontent.com/81707462/156249476-882a8129-46f8-4fcb-bc5c-ff3c47deab16.png)
+![image](https://user-images.githubusercontent.com/81707462/156437485-b28ba23f-9120-40ae-8a94-ba0d4fc46e3a.png)
 
 11-The virtual reality has a comfortable menu, you can open and close it with just one button. Which is shown to the users, also
 the hotspots and arrows to travel to other places have the right size and colors to be seen.
@@ -212,23 +211,23 @@ In the main menu you can do multiple things:
 Clicking the button log in, you can access to the log in and register form. This let you access to more options.
 (The app helps you a little in filling the forms correctly)
 
-![image](https://user-images.githubusercontent.com/81707462/156251229-80d095e1-2d00-47ae-b1ec-4eb3f19e09f8.png)
+![image](https://user-images.githubusercontent.com/81707462/156437708-cafa0de6-387f-4ece-9779-4b772ddd27f8.png)
 
 After logging in or resgistering, you can press the new button in the same place to log out.
 
-![image](https://user-images.githubusercontent.com/81707462/156251320-5da16571-2ef8-4a4a-a1e2-57764d79b428.png)
+![image](https://user-images.githubusercontent.com/81707462/156437852-164ed123-a03c-4167-a106-4551b1b65915.png)
 
 ##### Views
 
 There is a counter which shows how many times the page has been used.
 
-![image](https://user-images.githubusercontent.com/81707462/156251595-f9aa7901-4883-4d45-a8e4-af5053e8d792.png)
+![image](https://user-images.githubusercontent.com/81707462/156437895-7f9af90c-d135-4c93-9a44-33da06d21ecd.png)
 
 ##### Contact
 
 The form to send a message to the staff, only ussable if you are logged in.
 
-![image](https://user-images.githubusercontent.com/81707462/156251402-e9bb93b3-d10b-47db-922a-f3d360d49ebb.png)
+![image](https://user-images.githubusercontent.com/81707462/156438008-be555f5c-1c34-472b-8be7-36a103c51d05.png)
 
 #### Virtual reality
 
@@ -244,7 +243,7 @@ The page where you land at the start, you can choose which place you want to see
 
 Here you can watch the comments of other users or make your own if you are logged in.
 
-![image](https://user-images.githubusercontent.com/81707462/156251708-5f597774-2c4b-4a23-82a1-acbf90d872c3.png)
+![image](https://user-images.githubusercontent.com/81707462/156438159-55627343-907c-49ed-b830-d39834c4047b.png)
 
 ##### 360 place
 
