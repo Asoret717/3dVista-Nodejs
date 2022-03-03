@@ -388,6 +388,7 @@ public class LoginUsers : MonoBehaviour
         else
         {
             logout();
+            login_error.SetActive(true);
             login_error.transform.GetChild(0).GetComponent<Image>().transform.GetChild(0).GetComponent<Text>().text = "You aren't admin";
         }
     }
